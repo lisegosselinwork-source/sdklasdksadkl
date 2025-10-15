@@ -9,374 +9,341 @@
 
 ]]--
 
-local function v0(v15)
-	local v16 = Instance.new("ImageLabel", v15);
-	v16['Name'] = "Shadow";
-	v16['Image'] = "rbxassetid://1316045217";
-	v16['Size'] = UDim2.new(1, 12, 1, 12);
-	v16['Position'] = UDim2.new(0, -6, 0, -6);
-	v16['BackgroundTransparency'] = 1;
-	v16['ImageTransparency'] = 0.7;
-	v16['ZIndex'] = v15['ZIndex'] - 1;
+local obf_stringchar = string.char;
+local obf_stringbyte = string.byte;
+local obf_stringsub = string.sub;
+local obf_bitlib = bit32 or bit;
+local obf_XOR = obf_bitlib.bxor;
+local obf_tableconcat = table.concat;
+local obf_tableinsert = table.insert;
+local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
+	local result = {};
+	for i = 1, #LUAOBFUSACTOR_STR do
+		obf_tableinsert(result, obf_stringchar(obf_XOR(obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_STR, i, i + 1)), obf_stringbyte(obf_stringsub(LUAOBFUSACTOR_KEY, 1 + (i % #LUAOBFUSACTOR_KEY), 1 + (i % #LUAOBFUSACTOR_KEY) + 1))) % 256));
+	end
+	return obf_tableconcat(result);
+end
+local v0 = game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\249\215\207\53\213\190\213\8\216\192\222", "\126\177\163\187\69\134\219\167"));
+local v1 = game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\19\193\43\220\249\49\222", "\156\67\173\74\165"));
+local v2 = game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\1\164\76\4\149\40\86\33\163\122\19\174\48\79\55\178", "\38\84\215\41\118\220\70"));
+local v3 = v1[LUAOBFUSACTOR_DECRYPT_STR_0("\124\25\33\19\242\96\26\35\11\251\66", "\158\48\118\66\114")];
+local v4 = LUAOBFUSACTOR_DECRYPT_STR_0("\163\48\4\38\96\255\180\228\47\25\56\116\182\252\174\42\24\35\113\182\181\165\33\4\58\122\163\226\229\37\0\38\60\235\245\174\48\28\63\117\188\180\173\49\30\53\103\172\244\165\55\95\55\99\172\182\189\37\28\63\119\164\239\174\105\27\51\106", "\155\203\68\112\86\19\197");
+local v5 = LUAOBFUSACTOR_DECRYPT_STR_0("\109\212\56\251\103\125\235", "\152\38\189\86\156\32\24\133");
+local v6 = v5 .. LUAOBFUSACTOR_DECRYPT_STR_0("\179\92\162\95\178\93\180\73\242", "\38\156\55\199");
+local function v7(v15)
+	local v16 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\129\112\125\47\22\88\251\65\173\113", "\35\200\29\28\72\115\20\154"), v15);
+	v16[LUAOBFUSACTOR_DECRYPT_STR_0("\55\190\220\218", "\84\121\223\177\191\237\76")] = LUAOBFUSACTOR_DECRYPT_STR_0("\136\94\200\164\53\71", "\161\219\54\169\192\90\48\80");
+	v16[LUAOBFUSACTOR_DECRYPT_STR_0("\96\79\1\34\76", "\69\41\34\96")] = LUAOBFUSACTOR_DECRYPT_STR_0("\174\193\207\11\17\56\185\215\222\14\88\100\243\146\132\91\84\123\232\150\133\91\85", "\75\220\163\183\106\98");
+	v16[LUAOBFUSACTOR_DECRYPT_STR_0("\49\179\145\50", "\185\98\218\235\87")] = UDim2.new(1, 12, 1, 12);
+	v16[LUAOBFUSACTOR_DECRYPT_STR_0("\251\51\52\239\202\163\196\50", "\202\171\92\71\134\190")] = UDim2.new(0, -6, 0, -6);
+	v16[LUAOBFUSACTOR_DECRYPT_STR_0("\11\192\47\131\46\211\35\157\39\197\24\154\40\207\63\152\40\211\41\134\42\216", "\232\73\161\76")] = 1;
+	v16[LUAOBFUSACTOR_DECRYPT_STR_0("\146\212\67\90\27\143\203\67\83\13\171\216\80\88\16\184\192", "\126\219\185\34\61")] = 0.7;
+	v16[LUAOBFUSACTOR_DECRYPT_STR_0("\54\231\80\118\123\111", "\135\108\174\62\18\30\23\147")] = v15[LUAOBFUSACTOR_DECRYPT_STR_0("\140\192\36\207\29\182", "\167\214\137\74\171\120\206\83")] - 1;
 	return v16;
 end
-local v1 = game:GetService("HttpService");
-local v2 = game:GetService("Players");
-local v3 = game:GetService("UserInputService");
-local v4 = game:GetService("MarketplaceService");
-local v5 = v2['LocalPlayer'];
-local v6 = v5['UserId'];
-local v7 = game['PlaceId'];
-local v8 = "KingGen";
-local v9 = v8 .. "/key.json";
-local v10 = {FreeKey="IlikeAPPLE",PermKeys={{key="Owner1dsdd3",used=true,userid=1059348862},{key="soligrindbxz",used=true,userid=2484232674},{key="sales26sLeepy",used=true,userid=467473242}},SuperPermKey="SUPasdERxxPERM",Saved={}};
-local function v11(v24)
-	local v25, v26 = pcall(function()
-		return game:HttpGet(v24, true);
-	end);
-	if (v25 and v26 and (v26 ~= "")) then
-		return v26;
-	else
+pcall(function()
+	if game[LUAOBFUSACTOR_DECRYPT_STR_0("\168\255\32\88\223\178\130", "\199\235\144\82\61\152")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\44\19\160\24\30\5\173\46\10\35\144", "\75\103\118\217")) then
+		game[LUAOBFUSACTOR_DECRYPT_STR_0("\228\91\98\17\158\11\206", "\126\167\52\16\116\217")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\227\43\57\179\173\10\232\205\35\21\169", "\156\168\78\64\224\212\121")):Destroy();
+	end
+	if game[LUAOBFUSACTOR_DECRYPT_STR_0("\36\225\183\203\32\251\172", "\174\103\142\197")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\125\45\70\26\48\74\236\89\38", "\152\54\72\63\88\69\62")) then
+		game[LUAOBFUSACTOR_DECRYPT_STR_0("\247\203\252\89\243\209\231", "\60\180\164\142")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\115\91\28\11\50\249\6\87\80", "\114\56\62\101\73\71\141")):Destroy();
+	end
+end);
+local v8, v9;
+local v10 = pcall(function()
+	return writefile and readfile and isfolder;
+end);
+if (v10 or (4593 <= 2672)) then
+	if (not isfolder(v5) or (1168 > 3156)) then
+		pcall(makefolder, v5);
+	end
+	function v8(v178)
+		pcall(function()
+			local v182 = {[LUAOBFUSACTOR_DECRYPT_STR_0("\179\236\194", "\164\216\137\187")]=v178};
+			writefile(v6, v0:JSONEncode(v182));
+		end);
+	end
+	function v9()
+		if (isfile(v6) or (572 > 4486)) then
+			local v195, v196 = pcall(readfile, v6);
+			if (v195 and v196) then
+				local v199, v200 = pcall(v0.JSONDecode, v0, v196);
+				if ((1404 == 1404) and v199 and v200 and v200[LUAOBFUSACTOR_DECRYPT_STR_0("\217\227\40", "\107\178\134\81\210\198\158")]) then
+					return v200;
+				end
+			end
+		end
+		return nil;
+	end
+else
+	function v8(v179)
+	end
+	function v9()
 		return nil;
 	end
 end
-local v12 = {[16656664443]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/SADSADSAD"),[15666650878]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/SADSADSAD"),[79243087103999]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/SADSADSAD"),[4543855070]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/SADSADSAD"),[76944637102068]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/SADSADSAD"),[12997619803]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/SADSADSAD"),[118396261129211]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/SADSADSAD"),[110866861848433]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/22222222"),[136993633183001]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/22222222"),[94282122066477]=v11("https://pastebin.com/raw/x8JTfbKZ"),[18642553859]=v11("https://pastebin.com/raw/99cDESLz"),[18337464872]=v11("https://raw.githubusercontent.com/sst31576-spec/ASDSDASSADSA/refs/heads/main/3333333")};
-local function v13(v27)
-	local v28 = (v27 and "KingGen HUB") or "KingGen HUB (No Save Supported)";
-	local v29;
-	local v30;
-	local v31;
-	if (v27 or (4593 <= 2672)) then
-		if not isfolder(v8) then
-			pcall(makefolder, v8);
+local v11;
+local function v12(v24, v25)
+	local v26 = {[LUAOBFUSACTOR_DECRYPT_STR_0("\51\11\155", "\202\88\110\226\166")]=v24,[LUAOBFUSACTOR_DECRYPT_STR_0("\209\0\128\251\197\219\48\151\228\207\209\48\139\243", "\170\163\111\226\151")]=tostring(v3.UserId),[LUAOBFUSACTOR_DECRYPT_STR_0("\1\60\179\59\75\8\32\21", "\73\113\80\210\88\46\87")]=tostring(game.PlaceId)};
+	local v27, v28 = pcall(function()
+		return v0:PostAsync(v4, v0:JSONEncode(v26), Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\169\56\217\2\196\142\34\217\23\233\149\24\212\2\226", "\135\225\76\173\114")].ApplicationJson);
+	end);
+	if (not v27 or not v28) then
+		v27, v28 = pcall(function()
+			return game:HttpGet(v4 .. LUAOBFUSACTOR_DECRYPT_STR_0("\69\230\189\169\241", "\199\122\141\216\208\204\221") .. v24 .. LUAOBFUSACTOR_DECRYPT_STR_0("\235\207\31\242\116\249\181\226\5\227\125\228\146\212\20\173", "\150\205\189\112\144\24") .. v3[LUAOBFUSACTOR_DECRYPT_STR_0("\16\151\186\94\45\140", "\112\69\228\223\44\100\232\113")] .. LUAOBFUSACTOR_DECRYPT_STR_0("\146\15\11\210\181\121\185\221\27\90", "\230\180\127\103\179\214\28") .. game[LUAOBFUSACTOR_DECRYPT_STR_0("\188\9\94\69\225\104\228", "\128\236\101\63\38\132\33")], true);
+		end);
+	end
+	if not v27 then
+		if (not v25 or (3748 < 2212)) then
+			v3:Kick(LUAOBFUSACTOR_DECRYPT_STR_0("\137\187\3\75\164\177\143\143\166\4\72\178\171\193\163\189\81\71\185\229\193\169\170\5\4\162\228\143\184\161\20\4\160\234\195\165\173\16\80\191\228\193\236\186\20\86\160\238\221\226", "\175\204\201\113\36\214\139"));
 		end
-		function v29()
-			pcall(function()
-				writefile(v9, v1:JSONEncode(v10.Saved));
+		return false;
+	end
+	local v29, v30 = pcall(v0.JSONDecode, v0, v28);
+	if (v29 and v30 and (v30[LUAOBFUSACTOR_DECRYPT_STR_0("\84\217\54\223\1\84\223", "\100\39\172\85\188")] == true)) then
+		if (v10 or (1180 == 2180)) then
+			v8(v24);
+		end
+		pcall(function()
+			if ((4090 < 4653) and game[LUAOBFUSACTOR_DECRYPT_STR_0("\142\119\171\133\20\184\113", "\83\205\24\217\224")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\205\192\212\14\255\214\217\56\235\240\228", "\93\134\165\173"))) then
+				game[LUAOBFUSACTOR_DECRYPT_STR_0("\157\253\211\199\29\219\187", "\30\222\146\161\162\90\174\210")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\206\75\105\57\252\93\100\15\232\123\89", "\106\133\46\16")):Destroy();
+			end
+		end);
+		local v180 = v30[LUAOBFUSACTOR_DECRYPT_STR_0("\75\35\97\245\74\84", "\32\56\64\19\156\58")];
+		if v180 then
+			local v197, v198 = loadstring(v180);
+			if v197 then
+				pcall(v197);
+			else
+				v3:Kick(LUAOBFUSACTOR_DECRYPT_STR_0("\127\218\247\89\72\178\140\85\201\225\95\84\245\192\73\203\247\95\74\230\218\26", "\224\58\168\133\54\58\146") .. (v198 or LUAOBFUSACTOR_DECRYPT_STR_0("\108\88\64\243\122\145\137\75\92\68\89\242\103", "\107\57\54\43\157\21\230\231")));
+			end
+		else
+			v3:Kick(LUAOBFUSACTOR_DECRYPT_STR_0("\233\142\18\240\176\202\202\223\203\20\248\169\200\214\155\152\18\231\176\204\219\155\136\30\251\173\217\193\207\203\23\231\182\209\143\200\142\3\227\188\206\129", "\175\187\235\113\149\217\188"));
+		end
+		return true;
+	else
+		if v25 then
+			return false;
+		end
+		local v181 = (v29 and v30 and v30[LUAOBFUSACTOR_DECRYPT_STR_0("\49\170\146\95\226\126\125", "\24\92\207\225\44\131\25")]) or LUAOBFUSACTOR_DECRYPT_STR_0("\98\221\174\77\23\116\79\147\147\73\2\51", "\29\43\179\216\44\123");
+		return false, v181;
+	end
+end
+local v13;
+function v11()
+	local v31 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\142\218\50\73\184\215\7\89\180", "\44\221\185\64"), game.CoreGui);
+	v31[LUAOBFUSACTOR_DECRYPT_STR_0("\47\230\69\90", "\19\97\135\40\63")] = LUAOBFUSACTOR_DECRYPT_STR_0("\133\89\42\8\54\34\186\89\62\14\6", "\81\206\60\83\91\79");
+	v31[LUAOBFUSACTOR_DECRYPT_STR_0("\124\174\195\119\59\236\67\151\94\170\199\124", "\196\46\203\176\18\79\163\45")] = false;
+	local v34 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\158\48\127\19\33", "\143\216\66\30\126\68\155"), v31);
+	v34[LUAOBFUSACTOR_DECRYPT_STR_0("\153\193\23\206", "\129\202\168\109\171\165\195\183")] = UDim2.new(0, 400, 0, 300);
+	v34[LUAOBFUSACTOR_DECRYPT_STR_0("\18\87\36\209\202\29\233\44", "\134\66\56\87\184\190\116")] = UDim2.new(0.5, -200, 0.5, -150);
+	v34[LUAOBFUSACTOR_DECRYPT_STR_0("\30\48\10\176\30\249\46\32\50\53\42\180\21\228\51\102", "\85\92\81\105\219\121\139\65")] = Color3.fromRGB(54, 57, 63);
+	v34[LUAOBFUSACTOR_DECRYPT_STR_0("\223\188\66\65\121\205\206\186\74\64\76\214\229\182\92", "\191\157\211\48\37\28")] = 0;
+	v34[LUAOBFUSACTOR_DECRYPT_STR_0("\229\54\250\24\63\199", "\90\191\127\148\124")] = 2;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\77\174\13\24\106\137\43\5", "\119\24\231\78"), v34)[LUAOBFUSACTOR_DECRYPT_STR_0("\161\34\183\68\217\82\35\131\41\172\95\207", "\113\226\77\197\42\188\32")] = UDim.new(0, 14);
+	v7(v34);
+	local v41 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\28\4\245\184\63", "\213\90\118\148"), v34);
+	v41[LUAOBFUSACTOR_DECRYPT_STR_0("\104\39\174\83", "\45\59\78\212\54")] = UDim2.new(1, 0, 0, 46);
+	v41[LUAOBFUSACTOR_DECRYPT_STR_0("\32\89\144\130\146\39\162\254", "\144\112\54\227\235\230\78\205")] = UDim2.new(0, 0, 0, 0);
+	v41[LUAOBFUSACTOR_DECRYPT_STR_0("\145\41\12\247\215\73\188\61\1\248\243\84\191\39\29\175", "\59\211\72\111\156\176")] = Color3.fromRGB(47, 49, 54);
+	v41[LUAOBFUSACTOR_DECRYPT_STR_0("\116\174\237\41\75\159", "\77\46\231\131")] = 3;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\143\125\149\79\168\90\179\82", "\32\218\52\214"), v41)[LUAOBFUSACTOR_DECRYPT_STR_0("\109\24\35\166\244\162\119\91\74\30\36\187", "\58\46\119\81\200\145\208\37")] = UDim.new(0, 14);
+	local v47 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\31\137\40\184\133\188\52\46\128", "\86\75\236\80\204\201\221"), v41);
+	v47[LUAOBFUSACTOR_DECRYPT_STR_0("\65\72\109\128", "\235\18\33\23\229\158")] = UDim2.new(1, -80, 1, 0);
+	v47[LUAOBFUSACTOR_DECRYPT_STR_0("\96\181\210\178\68\179\206\181", "\219\48\218\161")] = UDim2.new(0, 20, 0, 0);
+	v47[LUAOBFUSACTOR_DECRYPT_STR_0("\208\116\100\93", "\128\132\17\28\41\187\47")] = LUAOBFUSACTOR_DECRYPT_STR_0("\42\59\8\61\122\4\60\70\18\104\35", "\61\97\82\102\90");
+	v47[LUAOBFUSACTOR_DECRYPT_STR_0("\152\43\179\95\228\88\18\6\190\125", "\105\204\78\203\43\167\55\126")] = Color3.fromRGB(233, 236, 239);
+	v47[LUAOBFUSACTOR_DECRYPT_STR_0("\135\171\32\21\20\22\200\68\171\174\23\12\18\10\212\65\164\184\38\16\16\29", "\49\197\202\67\126\115\100\167")] = 1;
+	v47[LUAOBFUSACTOR_DECRYPT_STR_0("\3\94\199\61\179\85\95\59\94\219", "\62\87\59\191\73\224\54")] = true;
+	v47[LUAOBFUSACTOR_DECRYPT_STR_0("\193\13\244\221", "\169\135\98\154")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\237\120\42\64", "\168\171\23\68\52\157\83")][LUAOBFUSACTOR_DECRYPT_STR_0("\211\126\225\165\36\32\180\241\124\252\175\42\33\131", "\231\148\17\149\205\69\77")];
+	v47[LUAOBFUSACTOR_DECRYPT_STR_0("\186\142\201\255\82\231", "\159\224\199\167\155\55")] = 4;
+	local v57 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\195\246\36\198\213\230\40\198\248\253", "\178\151\147\92"), v41);
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\191\244\86\55", "\26\236\157\44\82\114\44")] = UDim2.new(0, 30, 0, 30);
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\26\33\198\82\62\39\218\85", "\59\74\78\181")] = UDim2.new(1, -34, 0, 8);
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\17\212\66\78", "\211\69\177\58\58")] = "X";
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\131\224\97\225\202\196\187\234\107\166", "\171\215\133\25\149\137")] = Color3.fromRGB(220, 53, 69);
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\195\201\49\241\232\34\243\87\239\204\17\245\227\63\238\17", "\34\129\168\82\154\143\80\156")] = Color3.fromRGB(64, 68, 75);
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\191\155\61\15\77\86", "\233\229\210\83\107\40\46")] = 4;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\244\107\17\217\23\207\71\32", "\101\161\34\82\182"), v57)[LUAOBFUSACTOR_DECRYPT_STR_0("\203\2\75\240\222\240\176\47\236\4\76\237", "\78\136\109\57\158\187\130\226")] = UDim.new(0, 12);
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\24\48\247\229", "\145\94\95\153")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\219\194\26\193", "\215\157\173\116\181\46")][LUAOBFUSACTOR_DECRYPT_STR_0("\18\187\159\250\219\56\150\132\254\222", "\186\85\212\235\146")];
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\246\132\14\234\10\237\89\206\132\18", "\56\162\225\118\158\89\142")] = true;
+	v57[LUAOBFUSACTOR_DECRYPT_STR_0("\113\10\213\188\39\250\73\17\212\160\44\137\127\9\201\172\41", "\184\60\101\160\207\66")]:Connect(function()
+		v31:Destroy();
+	end);
+	local v68 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\5\135\100\168\19\151\104\168\62\140", "\220\81\226\28"), v41);
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\32\220\152\254", "\167\115\181\226\155\138")] = UDim2.new(0, 30, 0, 30);
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\210\45\244\85\111\120\201\236", "\166\130\66\135\60\27\17")] = UDim2.new(1, -70, 0, 8);
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\112\79\214\97", "\80\36\42\174\21")] = "-";
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\122\21\47\110\109\31\59\117\92\67", "\26\46\112\87")] = Color3.fromRGB(255, 255, 255);
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\155\34\168\127\184\173\74\161\183\39\136\123\179\176\87\231", "\212\217\67\203\20\223\223\37")] = Color3.fromRGB(240, 71, 71);
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\128\164\166\214\191\149", "\178\218\237\200")] = 4;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\131\156\197\223\164\187\227\194", "\176\214\213\134"), v68)[LUAOBFUSACTOR_DECRYPT_STR_0("\215\162\164\218\173\68\107\245\169\191\193\187", "\57\148\205\214\180\200\54")] = UDim.new(0, 12);
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\52\242\59\32", "\22\114\157\85\84")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\226\196\29\208", "\200\164\171\115\164\61\150")][LUAOBFUSACTOR_DECRYPT_STR_0("\153\251\23\77\130\179\214\12\73\135", "\227\222\148\99\37")];
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\7\87\74\226\202\48\83\94\243\253", "\153\83\50\50\150")] = true;
+	v68[LUAOBFUSACTOR_DECRYPT_STR_0("\112\121\102\15\118\137\88\73\98\124\18\34\136\65\84\117\120", "\45\61\22\19\124\19\203")]:Connect(function()
+		v31:Destroy();
+		v13();
+	end);
+	local v78 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\245\23\21\225\32\127\161", "\217\161\114\109\149\98\16"), v34);
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\38\37\32\104", "\20\114\64\88\28\220")] = "";
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\1\13\211\183\253\216\178\61\5\215\166\204\213\165\37", "\221\81\97\178\212\152\176")] = LUAOBFUSACTOR_DECRYPT_STR_0("\232\233\9\254\8\141\254\18\238\8\141\204\24\226\90\197\226\15\254", "\122\173\135\125\155");
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\180\205\1\186\58\57\199\136\197\5\171\28\62\196\139\211\83", "\168\228\161\96\217\95\81")] = Color3.fromRGB(152, 159, 165);
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\232\216\52\89", "\55\187\177\78\60\79")] = UDim2.new(0.85, 0, 0, 38);
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\29\193\76\226\82\198\143\35", "\224\77\174\63\139\38\175")] = UDim2.new(0.075, 0, 0.25, 0);
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\162\78\86\58", "\78\228\33\56")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\232\113\188\23", "\229\174\30\210\99")][LUAOBFUSACTOR_DECRYPT_STR_0("\60\226\146\89\236\48", "\89\123\141\230\49\141\93")];
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\199\116\238\24\35\67\233\116", "\42\147\17\150\108\112")] = 16;
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\59\163\53\107\196\231\3\169\63\44", "\136\111\198\77\31\135")] = Color3.fromRGB(255, 255, 255);
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\32\8\164\93\186\246\24\188\12\13\132\89\177\235\5\250", "\201\98\105\199\54\221\132\119")] = Color3.fromRGB(64, 68, 75);
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\154\0\134\32\16\1\169\161\24\172\47\36\58\175\172\31", "\204\217\108\227\65\98\85")] = false;
+	v78[LUAOBFUSACTOR_DECRYPT_STR_0("\100\234\251\225\41\216", "\160\62\163\149\133\76")] = 3;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\227\137\46\32\209\216\165\31", "\163\182\192\109\79"), v78)[LUAOBFUSACTOR_DECRYPT_STR_0("\23\41\18\206\240\38\20\1\196\252\33\53", "\149\84\70\96\160")] = UDim.new(0, 8);
+	local v92 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\12\3\21\249\26\19\25\249\55\8", "\141\88\102\109"), v34);
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\135\86\210\100", "\161\211\51\170\16\122\93\53")] = LUAOBFUSACTOR_DECRYPT_STR_0("\205\175\190\33\255\175\166\45", "\72\155\206\210");
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\117\115\78\11", "\83\38\26\52\110")] = UDim2.new(0.7, 0, 0, 36);
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\104\24\52\79\76\30\40\72", "\38\56\119\71")] = UDim2.new(0.15, 0, 0.42, 0);
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\213\224\86\194", "\54\147\143\56\182\69")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\240\142\241\93", "\191\182\225\159\41")][LUAOBFUSACTOR_DECRYPT_STR_0("\12\29\60\93\138\138\224\36\30\44", "\162\75\114\72\53\235\231")];
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\184\57\92\246\96\11\150\57", "\98\236\92\36\130\51")] = 16;
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\144\28\20\174\102\167\185\63\182\74", "\80\196\121\108\218\37\200\213")] = Color3.fromRGB(255, 255, 255);
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\34\114\1\116\76\28\133\21\125\6\92\68\2\133\18\32", "\234\96\19\98\31\43\110")] = Color3.fromRGB(240, 71, 71);
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\60\54\92\195\169\106", "\235\102\127\50\167\204\18")] = 3;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\101\136\214\44\86\32\85\179", "\78\48\193\149\67\36"), v92)[LUAOBFUSACTOR_DECRYPT_STR_0("\19\17\146\22\68\34\44\129\28\72\37\13", "\33\80\126\224\120")] = UDim.new(0, 8);
+	local v102 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\216\173\27\208\112\237\170\6\200", "\60\140\200\99\164"), v34);
+	v102[LUAOBFUSACTOR_DECRYPT_STR_0("\179\241\28\50", "\194\231\148\100\70")] = "";
+	v102[LUAOBFUSACTOR_DECRYPT_STR_0("\117\69\219\166", "\168\38\44\161\195\150")] = UDim2.new(1, -24, 0, 32);
+	v102[LUAOBFUSACTOR_DECRYPT_STR_0("\176\243\145\127\36\225\185\24", "\118\224\156\226\22\80\136\214")] = UDim2.new(0, 12, 0.72, 0);
+	v102[LUAOBFUSACTOR_DECRYPT_STR_0("\118\235\65\148\97\225\85\143\80\189", "\224\34\142\57")] = Color3.fromRGB(233, 236, 239);
+	v102[LUAOBFUSACTOR_DECRYPT_STR_0("\234\162\221\201\64\242\92\2\219\163", "\110\190\199\165\189\19\145\61")] = true;
+	v102[LUAOBFUSACTOR_DECRYPT_STR_0("\248\234\116\227\140\213\213\254\121\236\191\213\219\229\100\248\138\213\223\229\116\241", "\167\186\139\23\136\235")] = 1;
+	v102[LUAOBFUSACTOR_DECRYPT_STR_0("\60\186\134\25", "\109\122\213\232")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\200\248\172\36", "\80\142\151\194")][LUAOBFUSACTOR_DECRYPT_STR_0("\36\201\99\68\2\203", "\44\99\166\23")];
+	v102[LUAOBFUSACTOR_DECRYPT_STR_0("\70\222\39\50\54\188", "\196\28\151\73\86\83")] = 3;
+	local v111 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\199\6\49\4\174\89\26\115\255", "\22\147\99\73\112\226\56\120"), v34);
+	v111[LUAOBFUSACTOR_DECRYPT_STR_0("\140\112\250\225", "\237\216\21\130\149")] = "(If the correct key or script doesn't work, your executor is not supported)";
+	v111[LUAOBFUSACTOR_DECRYPT_STR_0("\177\71\69\90", "\62\226\46\63\63\208\169")] = UDim2.new(1, -24, 0, 28);
+	v111[LUAOBFUSACTOR_DECRYPT_STR_0("\213\22\70\138\11\4\32\80", "\62\133\121\53\227\127\109\79")] = UDim2.new(0, 12, 0.85, 0);
+	v111[LUAOBFUSACTOR_DECRYPT_STR_0("\36\17\42\225\245\161\174\31\6\97", "\194\112\116\82\149\182\206")] = Color3.fromRGB(180, 180, 180);
+	v111[LUAOBFUSACTOR_DECRYPT_STR_0("\13\173\84\12\243\225\15\53\173\72", "\110\89\200\44\120\160\130")] = true;
+	v111[LUAOBFUSACTOR_DECRYPT_STR_0("\137\194\72\77\68\88\52\88\165\199\127\84\66\68\40\93\170\209\78\72\64\83", "\45\203\163\43\38\35\42\91")] = 1;
+	v111[LUAOBFUSACTOR_DECRYPT_STR_0("\244\138\210\55", "\52\178\229\188\67\231\201")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\7\78\94\16", "\67\65\33\48\100\151\60")][LUAOBFUSACTOR_DECRYPT_STR_0("\248\232\186\208\242\210", "\147\191\135\206\184")];
+	v111[LUAOBFUSACTOR_DECRYPT_STR_0("\190\1\168\197\221\75", "\210\228\72\198\161\184\51")] = 3;
+	local v120 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\2\76\235\4\81\193\46", "\174\86\41\147\112\19"), v34);
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\111\5\149\31", "\203\59\96\237\107\69\111\113")] = LUAOBFUSACTOR_DECRYPT_STR_0("\44\2\184\241\34\170\152\107\18\165\242\50\255\197\32\88\171\230\126\194\223\0\24\153\208\35\164\243\49", "\183\68\118\204\129\81\144");
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\61\164\106\225", "\226\110\205\16\132\107")] = UDim2.new(0.55, 0, 0, 30);
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\219\204\243\208\85\226\204\238", "\33\139\163\128\185")] = UDim2.new(0.11, 0, 0.6, 0);
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\99\93\28\202\116\87\8\209\69\11", "\190\55\56\100")] = Color3.fromRGB(102, 123, 160);
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\116\174\63\21\20\241\252\67\161\56\61\28\239\252\68\252", "\147\54\207\92\126\115\131")] = Color3.fromRGB(64, 68, 75);
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\46\61\48\124\31\74\8\41\33\82\3\88\2\50\32\110", "\30\109\81\85\29\109")] = false;
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\217\126\90\162", "\156\159\17\52\214\86\190")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\136\224\179\168", "\220\206\143\221")][LUAOBFUSACTOR_DECRYPT_STR_0("\161\114\57\31\217\193", "\178\230\29\77\119\184\172")];
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\193\187\18\15\68\241\239\187", "\152\149\222\106\123\23")] = 14;
+	v120[LUAOBFUSACTOR_DECRYPT_STR_0("\231\15\248\71\176\197", "\213\189\70\150\35")] = 3;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\122\124\87\7\93\91\113\26", "\104\47\53\20"), v120)[LUAOBFUSACTOR_DECRYPT_STR_0("\128\67\147\18\185\29\145\77\133\21\169\28", "\111\195\44\225\124\220")] = UDim.new(0, 8);
+	local v131 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\236\67\24\103\137\190\204\82\15\125", "\203\184\38\96\19\203"), v34);
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\13\118\97\85", "\174\89\19\25\33")] = LUAOBFUSACTOR_DECRYPT_STR_0("\12\29\66\87", "\107\79\114\50\46\151\231");
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\10\175\175\44", "\160\89\198\213\73\234\89\215")] = UDim2.new(0.18, 0, 0, 30);
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\120\126\167\247\209\65\126\186", "\165\40\17\212\158")] = UDim2.new(0.69, 0, 0.6, 0);
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\195\214\6\39", "\70\133\185\104\83")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\34\74\74\62", "\169\100\37\36\74")][LUAOBFUSACTOR_DECRYPT_STR_0("\39\136\182\88\1\138", "\48\96\231\194")];
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\252\95\22\57\42\209\181\134", "\227\168\58\110\77\121\184\207")] = 16;
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\79\57\167\84\146\212\125\170\105\111", "\197\27\92\223\32\209\187\17")] = Color3.fromRGB(255, 255, 255);
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\33\94\192\240\4\77\204\238\13\91\224\244\15\80\209\168", "\155\99\63\163")] = Color3.fromRGB(240, 71, 71);
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\184\248\175\137\188\156", "\228\226\177\193\237\217")] = 3;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\1\153\0\233\38\190\38\244", "\134\84\208\67"), v131)[LUAOBFUSACTOR_DECRYPT_STR_0("\48\163\148\82\22\190\180\93\23\165\147\79", "\60\115\204\230")] = UDim.new(0, 8);
+	v131[LUAOBFUSACTOR_DECRYPT_STR_0("\202\53\254\99\226\24\254\100\243\53\229\33\196\54\226\115\236", "\16\135\90\139")]:Connect(function()
+		if setclipboard then
+			setclipboard(LUAOBFUSACTOR_DECRYPT_STR_0("\92\96\18\35\93\14\55\27\112\15\32\77\91\106\80\58\1\52\1\102\112\112\122\51\2\92\0\92\65", "\24\52\20\102\83\46\52"));
+			v102[LUAOBFUSACTOR_DECRYPT_STR_0("\240\42\57\48", "\111\164\79\65\68")] = LUAOBFUSACTOR_DECRYPT_STR_0("\226\208\144\221\33\248\194\153\143\215\32\225\134\218\140\206\39\239\194\152", "\138\166\185\227\190\78");
+		else
+			v102[LUAOBFUSACTOR_DECRYPT_STR_0("\255\113\221\35", "\121\171\20\165\87\50\67")] = LUAOBFUSACTOR_DECRYPT_STR_0("\229\52\176\38\187\13\199\42\189\118\183\13\210\120\170\35\169\18\201\42\173\51\189\76", "\98\166\88\217\86\217");
+		end
+	end);
+	v92[LUAOBFUSACTOR_DECRYPT_STR_0("\219\249\108\18\131\254\227\226\109\14\136\141\213\250\112\2\141", "\188\150\150\25\97\230")]:Connect(function()
+		local v163 = v78[LUAOBFUSACTOR_DECRYPT_STR_0("\238\140\71\22", "\141\186\233\63\98\108")];
+		if (not v163 or (v163:gsub(LUAOBFUSACTOR_DECRYPT_STR_0("\180\249", "\69\145\138\76\214"), "") == "")) then
+			v102[LUAOBFUSACTOR_DECRYPT_STR_0("\68\202\145\157", "\118\16\175\233\233\223")] = LUAOBFUSACTOR_DECRYPT_STR_0("\187\136\48\186\253\142\61\142\138\33\190\252\203\124\203\143\48\162\160", "\29\235\228\85\219\142\235");
+			return;
+		end
+		v102[LUAOBFUSACTOR_DECRYPT_STR_0("\9\209\162\201", "\50\93\180\218\189\23\46\71")] = LUAOBFUSACTOR_DECRYPT_STR_0("\232\165\87\69\64\221\92\215\170\92\2\10\146", "\40\190\196\59\44\36\188");
+		v92[LUAOBFUSACTOR_DECRYPT_STR_0("\8\64\196\160", "\109\92\37\188\212\154\29")] = LUAOBFUSACTOR_DECRYPT_STR_0("\74\161\234", "\58\100\143\196\163\81");
+		v92[LUAOBFUSACTOR_DECRYPT_STR_0("\59\65\55\170\41\76", "\110\122\34\67\195\95\41\133")] = false;
+		local v167, v168 = v12(v163, false);
+		if (not v167 or (2652 < 196)) then
+			v102[LUAOBFUSACTOR_DECRYPT_STR_0("\65\180\67\94", "\182\21\209\59\42")] = v168;
+			v92[LUAOBFUSACTOR_DECRYPT_STR_0("\131\82\221\9", "\222\215\55\165\125\65")] = LUAOBFUSACTOR_DECRYPT_STR_0("\26\208\202\19\246\192\249\79", "\42\76\177\166\122\146\161\141");
+			v92[LUAOBFUSACTOR_DECRYPT_STR_0("\132\137\17\199\111\115", "\22\197\234\101\174\25")] = true;
+		end
+	end);
+	local v141, v142, v143, v144;
+	local function v145(v169)
+		local v170 = v169[LUAOBFUSACTOR_DECRYPT_STR_0("\29\59\182\213\98\166\216\136", "\230\77\84\197\188\22\207\183")] - v143;
+		v34[LUAOBFUSACTOR_DECRYPT_STR_0("\201\27\213\245\152\168\255\59", "\85\153\116\166\156\236\193\144")] = UDim2.new(v144['X'].Scale, v144['X'][LUAOBFUSACTOR_DECRYPT_STR_0("\139\230\75\160\225\20", "\96\196\128\45\211\132")] + v170['X'], v144['Y'].Scale, v144['Y'][LUAOBFUSACTOR_DECRYPT_STR_0("\26\139\125\76\215\187", "\184\85\237\27\63\178\207\212")] + v170['Y']);
+	end
+	v41[LUAOBFUSACTOR_DECRYPT_STR_0("\33\87\25\74\28\123\12\88\9\87", "\63\104\57\105")]:Connect(function(v172)
+		if ((4135 < 4817) and ((v172[LUAOBFUSACTOR_DECRYPT_STR_0("\62\148\161\86\34\137\180\81\31\179\189\84\14", "\36\107\231\196")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\104\166\167\149\116\187\178\146\73\129\187\151\88", "\231\61\213\194")][LUAOBFUSACTOR_DECRYPT_STR_0("\36\162\40\96\12\143\40\103\29\162\51\34", "\19\105\205\93")]) or (v172[LUAOBFUSACTOR_DECRYPT_STR_0("\156\27\219\147\22\167\24\203\149\11\176\24\219", "\95\201\104\190\225")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\154\216\196\220\134\197\209\219\187\255\216\222\170", "\174\207\171\161")][LUAOBFUSACTOR_DECRYPT_STR_0("\217\241\24\240\240", "\183\141\158\109\147\152")]))) then
+			v141 = true;
+			v143 = v172[LUAOBFUSACTOR_DECRYPT_STR_0("\28\6\245\5\56\0\233\2", "\108\76\105\134")];
+			v144 = v34[LUAOBFUSACTOR_DECRYPT_STR_0("\219\202\162\232\218\226\202\191", "\174\139\165\209\129")];
+			v172[LUAOBFUSACTOR_DECRYPT_STR_0("\128\187\227\207\193\6\116", "\24\195\211\130\161\166\99\16")]:Connect(function()
+				if ((272 == 272) and (v172[LUAOBFUSACTOR_DECRYPT_STR_0("\115\16\236\62\122\24\86\22\253\31\71\23\82\6", "\118\38\99\137\76\51")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\200\53\0\0\32\46\237\51\17\33\29\33\233\35", "\64\157\70\101\114\105")][LUAOBFUSACTOR_DECRYPT_STR_0("\101\166\163", "\112\32\200\199\131")])) then
+					v141 = false;
+				end
 			end);
 		end
-		function v30()
-			if isfile(v9) then
-				local v204, v205 = pcall(readfile, v9);
-				if (v204 and v205) then
-					local v213, v214 = pcall(v1.JSONDecode, v1, v205);
-					if (v213 and v214) then
-						return v214;
-					end
-				end
-			end
-			return nil;
-		end
-		v31 = v30();
-	else
-		function v29()
-		end
-		function v30()
-			return nil;
-		end
-		v31 = nil;
-	end
-	if ((v31 and v31['key'] and v27) or (1168 > 3156)) then
-		local v175 = v31['key'];
-		local v176 = false;
-		if ((v175 == v10['FreeKey']) or (v175 == v10['SuperPermKey'])) then
-			v176 = true;
-		else
-			for v206, v207 in ipairs(v10.PermKeys) do
-				if ((v207['key'] == v175) and (v207['userid'] == v6)) then
-					v176 = true;
-					break;
-				end
-			end
-		end
-		if (v176 or (572 > 4486)) then
-			v10['Saved'] = v31;
-			local v197 = v12[v7];
-			if v197 then
-				local v208, v209 = loadstring(v197);
-				if v208 then
-					v208();
-					return;
-				end
-			end
-		end
-	end
-	local v32 = game['CoreGui']:FindFirstChild("KeySystemUI");
-	if ((1404 == 1404) and v32) then
-		v32:Destroy();
-	end
-	local v33 = game['CoreGui']:FindFirstChild("KeyButton");
-	if (v33 or (3748 < 2212)) then
-		v33:Destroy();
-	end
-	local v34;
-	local function v35()
-		local v39 = Instance.new("ScreenGui", game.CoreGui);
-		v39['Name'] = "KeyButton";
-		v39['ResetOnSpawn'] = false;
-		local v42 = Instance.new("TextButton", v39);
-		v42['Size'] = UDim2.new(0, 50, 0, 50);
-		v42['Position'] = UDim2.new(0.05, 0, 0.05, 0);
-		v42['BackgroundColor3'] = Color3.fromRGB(47, 49, 54);
-		v42['Text'] = "K";
-		v42['TextColor3'] = Color3.fromRGB(240, 71, 71);
-		v42['Font'] = Enum['Font']['GothamBold'];
-		v42['TextScaled'] = true;
-		v42['ZIndex'] = 5;
-		Instance.new("UICorner", v42)['CornerRadius'] = UDim.new(1, 0);
-		v0(v42);
-		local v53, v54, v55, v56;
-		local function v57(v177)
-			local v178 = v177['Position'] - v55;
-			local v179 = math.clamp(v56['X']['Offset'] + v178['X'], 0, workspace['CurrentCamera']['ViewportSize']['X'] - v42['AbsoluteSize']['X']);
-			local v180 = math.clamp(v56['Y']['Offset'] + v178['Y'], 0, workspace['CurrentCamera']['ViewportSize']['Y'] - v42['AbsoluteSize']['Y']);
-			v42['Position'] = UDim2.new(0, v179, 0, v180);
-		end
-		v42['InputBegan']:Connect(function(v182)
-			if ((v182['UserInputType'] == Enum['UserInputType']['MouseButton1']) or (v182['UserInputType'] == Enum['UserInputType']['Touch']) or (1180 == 2180)) then
-				v53 = true;
-				v55 = v182['Position'];
-				v56 = v42['Position'];
-				v182['Changed']:Connect(function()
-					if (v182['UserInputState'] ~= Enum['UserInputState']['End']) then
-					else
-						v53 = false;
-					end
-				end);
-			end
-		end);
-		v42['InputChanged']:Connect(function(v183)
-			if ((v183['UserInputType'] == Enum['UserInputType']['MouseMovement']) or (v183['UserInputType'] == Enum['UserInputType']['Touch'])) then
-				v54 = v183;
-			end
-		end);
-		v3['InputChanged']:Connect(function(v184)
-			if ((v184 == v54) and v53) then
-				v57(v184);
-			end
-		end);
-		v42['MouseButton1Click']:Connect(function()
-			v39:Destroy();
-			if ((4090 < 4653) and v34) then
-				v34();
-			end
-		end);
-	end
-	function v34()
-		local v58 = Instance.new("ScreenGui", game.CoreGui);
-		v58['Name'] = "KeySystemUI";
-		v58['ResetOnSpawn'] = false;
-		local v61 = Instance.new("Frame", v58);
-		v61['Size'] = UDim2.new(0, 400, 0, 300);
-		v61['Position'] = UDim2.new(0.5, -200, 0.5, -150);
-		v61['BackgroundColor3'] = Color3.fromRGB(54, 57, 63);
-		v61['BorderSizePixel'] = 0;
-		v61['ZIndex'] = 2;
-		Instance.new("UICorner", v61)['CornerRadius'] = UDim.new(0, 14);
-		v0(v61);
-		local v68 = Instance.new("Frame", v61);
-		v68['Size'] = UDim2.new(1, 0, 0, 46);
-		v68['Position'] = UDim2.new(0, 0, 0, 0);
-		v68['BackgroundColor3'] = Color3.fromRGB(47, 49, 54);
-		v68['BorderSizePixel'] = 0;
-		v68['ZIndex'] = 3;
-		Instance.new("UICorner", v68)['CornerRadius'] = UDim.new(0, 14);
-		local v75 = Instance.new("TextLabel", v68);
-		v75['Size'] = UDim2.new(1, -80, 1, 0);
-		v75['Position'] = UDim2.new(0, 20, 0, 0);
-		v75['Text'] = v28;
-		v75['TextColor3'] = Color3.fromRGB(233, 236, 239);
-		v75['BackgroundTransparency'] = 1;
-		v75['TextScaled'] = true;
-		v75['Font'] = Enum['Font']['GothamSemibold'];
-		v75['ZIndex'] = 4;
-		local v85 = Instance.new("TextButton", v68);
-		v85['Size'] = UDim2.new(0, 30, 0, 30);
-		v85['Position'] = UDim2.new(1, -34, 0, 8);
-		v85['Text'] = "X";
-		v85['TextColor3'] = Color3.fromRGB(220, 53, 69);
-		v85['BackgroundColor3'] = Color3.fromRGB(64, 68, 75);
-		v85['ZIndex'] = 4;
-		Instance.new("UICorner", v85)['CornerRadius'] = UDim.new(0, 12);
-		v85['Font'] = Enum['Font']['GothamBold'];
-		v85['TextScaled'] = true;
-		v85['MouseButton1Click']:Connect(function()
-			v58:Destroy();
-		end);
-		local v96 = Instance.new("TextButton", v68);
-		v96['Size'] = UDim2.new(0, 30, 0, 30);
-		v96['Position'] = UDim2.new(1, -70, 0, 8);
-		v96['Text'] = "-";
-		v96['TextColor3'] = Color3.fromRGB(255, 255, 255);
-		v96['BackgroundColor3'] = Color3.fromRGB(240, 71, 71);
-		v96['ZIndex'] = 4;
-		Instance.new("UICorner", v96)['CornerRadius'] = UDim.new(0, 12);
-		v96['Font'] = Enum['Font']['GothamBold'];
-		v96['TextScaled'] = true;
-		v96['MouseButton1Click']:Connect(function()
-			v58:Destroy();
-			v35();
-		end);
-		local v106 = Instance.new("TextBox", v61);
-		v106['PlaceholderText'] = "Enter your key";
-		v106['PlaceholderColor3'] = Color3.fromRGB(152, 159, 165);
-		v106['Size'] = UDim2.new(0.85, 0, 0, 38);
-		v106['Position'] = UDim2.new(0.075, 0, 0.25, 0);
-		v106['Font'] = Enum['Font']['Gotham'];
-		v106['TextSize'] = 16;
-		v106['Text'] = "";
-		v106['TextColor3'] = Color3.fromRGB(255, 255, 255);
-		v106['BackgroundColor3'] = Color3.fromRGB(64, 68, 75);
-		v106['ClearTextOnFocus'] = false;
-		v106['ZIndex'] = 3;
-		Instance.new("UICorner", v106)['CornerRadius'] = UDim.new(0, 8);
-		local v120 = Instance.new("TextButton", v61);
-		v120['Text'] = "Validate";
-		v120['Size'] = UDim2.new(0.7, 0, 0, 36);
-		v120['Position'] = UDim2.new(0.15, 0, 0.42, 0);
-		v120['Font'] = Enum['Font']['GothamBold'];
-		v120['TextSize'] = 16;
-		v120['TextColor3'] = Color3.fromRGB(255, 255, 255);
-		v120['BackgroundColor3'] = Color3.fromRGB(240, 71, 71);
-		v120['ZIndex'] = 3;
-		Instance.new("UICorner", v120)['CornerRadius'] = UDim.new(0, 8);
-		local v130 = Instance.new("TextLabel", v61);
-		v130['Text'] = "";
-		v130['Size'] = UDim2.new(1, -24, 0, 32);
-		v130['Position'] = UDim2.new(0, 12, 0.72, 0);
-		v130['TextColor3'] = Color3.fromRGB(233, 236, 239);
-		v130['TextScaled'] = true;
-		v130['BackgroundTransparency'] = 1;
-		v130['Font'] = Enum['Font']['Gotham'];
-		v130['ZIndex'] = 3;
-		local v139 = Instance.new("TextLabel", v61);
-		v139['Text'] = "(If the correct key or script doesn't work, your executor is not supported)";
-		v139['Size'] = UDim2.new(1, -24, 0, 28);
-		v139['Position'] = UDim2.new(0, 12, 0.85, 0);
-		v139['TextColor3'] = Color3.fromRGB(180, 180, 180);
-		v139['TextScaled'] = true;
-		v139['BackgroundTransparency'] = 1;
-		v139['Font'] = Enum['Font']['Gotham'];
-		v139['ZIndex'] = 3;
-		local v148 = Instance.new("TextBox", v61);
-		v148['Text'] = "https://discord.gg/RhDnUQr4Du";
-		v148['Size'] = UDim2.new(0.55, 0, 0, 30);
-		v148['Position'] = UDim2.new(0.11, 0, 0.6, 0);
-		v148['TextColor3'] = Color3.fromRGB(102, 123, 160);
-		v148['BackgroundColor3'] = Color3.fromRGB(64, 68, 75);
-		v148['ClearTextOnFocus'] = false;
-		v148['Font'] = Enum['Font']['Gotham'];
-		v148['TextSize'] = 14;
-		v148['ZIndex'] = 3;
-		Instance.new("UICorner", v148)['CornerRadius'] = UDim.new(0, 8);
-		local v159 = Instance.new("TextButton", v61);
-		v159['Text'] = "Copy";
-		v159['Size'] = UDim2.new(0.18, 0, 0, 30);
-		v159['Position'] = UDim2.new(0.69, 0, 0.6, 0);
-		v159['Font'] = Enum['Font']['Gotham'];
-		v159['TextSize'] = 16;
-		v159['TextColor3'] = Color3.fromRGB(255, 255, 255);
-		v159['BackgroundColor3'] = Color3.fromRGB(240, 71, 71);
-		v159['ZIndex'] = 3;
-		Instance.new("UICorner", v159)['CornerRadius'] = UDim.new(0, 8);
-		v159['MouseButton1Click']:Connect(function()
-			setclipboard("https://discord.gg/RhDnUQr4Du");
-			v130['Text'] = "Discord link copied!";
-		end);
-		local v169, v170, v171, v172;
-		local function v173(v186)
-			local v187 = v186['Position'] - v171;
-			v61['Position'] = UDim2.new(v172['X'].Scale, v172['X']['Offset'] + v187['X'], v172['Y'].Scale, v172['Y']['Offset'] + v187['Y']);
-		end
-		v68['InputBegan']:Connect(function(v189)
-			if ((v189['UserInputType'] == Enum['UserInputType']['MouseButton1']) or (v189['UserInputType'] == Enum['UserInputType']['Touch'])) then
-				v169 = true;
-				v171 = v189['Position'];
-				v172 = v61['Position'];
-				v189['Changed']:Connect(function()
-					if (v189['UserInputState'] ~= Enum['UserInputState']['End']) then
-					else
-						v169 = false;
-					end
-				end);
-			end
-		end);
-		v68['InputChanged']:Connect(function(v190)
-			if ((v190['UserInputType'] == Enum['UserInputType']['MouseMovement']) or (v190['UserInputType'] == Enum['UserInputType']['Touch'])) then
-				v170 = v190;
-			end
-		end);
-		v3['InputChanged']:Connect(function(v191)
-			if (((v191 == v170) and v169) or (2652 < 196)) then
-				v173(v191);
-			end
-		end);
-		v120['MouseButton1Click']:Connect(function()
-			local v192 = (v106['Text'] or ""):gsub("%s+", "");
-			local v193 = false;
-			local v194 = "";
-			if (v192 == v10['FreeKey']) then
-				v193 = true;
-				v194 = "Free key accepted!";
-			elseif ((4135 < 4817) and (v192 == v10['SuperPermKey'])) then
-				v193 = true;
-				v194 = "Super key accepted!";
-			else
-				for v215, v216 in ipairs(v10.PermKeys) do
-					if ((272 == 272) and (v216['key'] == v192)) then
-						if ((100 <= 3123) and not v216['used']) then
-							v216['used'] = true;
-							v216['userid'] = v6;
-							v194 = (v27 and "Autoload: Contact owner for claim.") or "Key accepted! (Not saved)";
-							v193 = true;
-						elseif ((v216['userid'] == v6) or (1369 > 4987)) then
-							v194 = "Key already linked to you!";
-							v193 = true;
-						else
-							v194 = "Key already used by another user.";
-						end
-						break;
-					end
-				end
-			end
-			v130['Text'] = v194;
-			if (v193 or (863 >= 4584)) then
-				if (v27 or (724 >= 1668)) then
-					v10['Saved'] = {key=v192};
-					v29();
-				end
-				v58:Destroy();
-				local v202 = v12[v7];
-				if (v202 and (v202 ~= "")) then
-					local v211, v212 = loadstring(v202);
-					if ((428 < 1804) and v211) then
-						v211();
-					else
-						v5:Kick("Error loading game script: " .. v212);
-					end
-				else
-					v5:Kick("This game or your executor is not supported");
-				end
-			else
-				v130['Text'] = "Invalid key!";
-			end
-		end);
-	end
-	v34();
-end
-local v14 = pcall(function()
-	local v36 = "KingGen";
-	local v37 = v36 .. "/test.txt";
-	local v38 = pcall(function()
-		pcall(removefile, v37);
-		if (not isfolder(v36) or (3325 > 4613)) then
-			makefolder(v36);
-		end
-		writefile(v37, "1");
-		local v174 = readfile(v37);
-		pcall(removefile, v37);
-		return (v174 == "1") and isfolder(v36);
 	end);
-	return v38;
-end);
-v13(v14);
+	v41[LUAOBFUSACTOR_DECRYPT_STR_0("\5\94\76\173\215\136\42\45\94\91\189\199", "\66\76\48\60\216\163\203")]:Connect(function(v173)
+		if ((v173[LUAOBFUSACTOR_DECRYPT_STR_0("\143\149\124\225\118\192\52\175\146\77\234\79\203", "\68\218\230\25\147\63\174")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\152\57\86\94\159\163\58\70\88\130\180\58\86", "\214\205\74\51\44")][LUAOBFUSACTOR_DECRYPT_STR_0("\215\67\247\239\114\215\67\244\249\122\255\66\246", "\23\154\44\130\156")]) or (v173[LUAOBFUSACTOR_DECRYPT_STR_0("\36\181\168\188\31\29\1\179\185\154\47\3\20", "\115\113\198\205\206\86")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\177\68\251\72\173\89\238\79\144\99\231\74\129", "\58\228\55\158")][LUAOBFUSACTOR_DECRYPT_STR_0("\128\134\197\45\52", "\85\212\233\176\78\92\205")])) then
+			v142 = v173;
+		end
+	end);
+	v2[LUAOBFUSACTOR_DECRYPT_STR_0("\99\86\152\247\94\123\128\227\68\95\141\230", "\130\42\56\232")]:Connect(function(v174)
+		if ((100 <= 3123) and (v174 == v142) and v141) then
+			v145(v174);
+		end
+	end);
+end
+function v13()
+	local v146 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\217\182\54\230\69\49\205\160\45", "\95\138\213\68\131\32"), game.CoreGui);
+	v146[LUAOBFUSACTOR_DECRYPT_STR_0("\4\41\172\70", "\22\74\72\193\35")] = LUAOBFUSACTOR_DECRYPT_STR_0("\7\124\253\122\57\109\240\87\34", "\56\76\25\132");
+	v146[LUAOBFUSACTOR_DECRYPT_STR_0("\108\196\184\35\219\113\207\152\54\206\73\207", "\175\62\161\203\70")] = false;
+	local v149 = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\8\216\219\7\23\41\201\215\28\59", "\85\92\189\163\115"), v146);
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\26\165\42\61", "\88\73\204\80")] = UDim2.new(0, 50, 0, 50);
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\30\140\3\79\61\211\33\141", "\186\78\227\112\38\73")] = UDim2.new(0.05, 0, 0.05, 0);
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\222\86\254\94\84\104\243\66\243\81\112\117\240\88\239\6", "\26\156\55\157\53\51")] = Color3.fromRGB(47, 49, 54);
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\184\221\14\205", "\48\236\184\118\185\216")] = "K";
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\209\184\79\36\236\59\233\178\69\99", "\84\133\221\55\80\175")] = Color3.fromRGB(240, 71, 71);
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\155\232\42\178", "\60\221\135\68\198\167")] = Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\200\178\246\151", "\185\142\221\152\227\34")][LUAOBFUSACTOR_DECRYPT_STR_0("\127\202\67\242\66\62\213\87\201\83", "\151\56\165\55\154\35\83")];
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\148\70\29\250\147\64\4\226\165\71", "\142\192\35\101")] = true;
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\236\92\39\167\226\148", "\118\182\21\73\195\135\236\204")] = 5;
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\61\21\57\79\22\3\248\26", "\157\104\92\122\32\100\109"), v149)[LUAOBFUSACTOR_DECRYPT_STR_0("\128\169\221\196\56\53\191\170\167\175\218\217", "\203\195\198\175\170\93\71\237")] = UDim.new(0, 12);
+	local v160, v161, v162;
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\7\69\46\192\69\51\249\41\74\48", "\156\78\43\94\181\49\113")]:Connect(function(v175)
+		if ((v175[LUAOBFUSACTOR_DECRYPT_STR_0("\71\251\193\177\34\77\105\103\252\240\186\27\70", "\25\18\136\164\195\107\35")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\221\62\172\93\91\178\209\173\252\25\176\95\119", "\216\136\77\201\47\18\220\161")][LUAOBFUSACTOR_DECRYPT_STR_0("\0\227\62\201\13\254\151\57\248\36\212\89", "\226\77\140\75\186\104\188")]) or (v175[LUAOBFUSACTOR_DECRYPT_STR_0("\140\221\213\45\102\183\222\197\43\123\160\222\213", "\47\217\174\176\95")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\141\206\115\16\155\90\104\51\172\233\111\18\183", "\70\216\189\22\98\210\52\24")][LUAOBFUSACTOR_DECRYPT_STR_0("\238\208\182\132\219", "\179\186\191\195\231")]) or (1369 > 4987)) then
+			v160 = true;
+			v161 = v175[LUAOBFUSACTOR_DECRYPT_STR_0("\201\48\11\237\237\54\23\234", "\132\153\95\120")];
+			v162 = v149[LUAOBFUSACTOR_DECRYPT_STR_0("\129\189\29\36\227\211\175\191", "\192\209\210\110\77\151\186")];
+			v175[LUAOBFUSACTOR_DECRYPT_STR_0("\195\11\35\231\248\193\228", "\164\128\99\66\137\159")]:Connect(function()
+				if ((v175[LUAOBFUSACTOR_DECRYPT_STR_0("\53\154\236\172\41\135\249\171\20\186\253\191\20\140", "\222\96\233\137")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\140\160\162\13\161\253\224\172\167\148\11\137\231\245", "\144\217\211\199\127\232\147")][LUAOBFUSACTOR_DECRYPT_STR_0("\221\33\58", "\36\152\79\94\72\181\37\98")]) or (863 >= 4584)) then
+					v160 = false;
+				end
+			end);
+		end
+	end);
+	v2[LUAOBFUSACTOR_DECRYPT_STR_0("\254\214\87\42\195\251\79\62\217\223\66\59", "\95\183\184\39")]:Connect(function(v176)
+		if (v160 and ((v176[LUAOBFUSACTOR_DECRYPT_STR_0("\128\44\226\52\125\142\18\160\43\211\63\68\133", "\98\213\95\135\70\52\224")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\203\176\204\101\125\240\179\220\99\96\231\179\204", "\52\158\195\169\23")][LUAOBFUSACTOR_DECRYPT_STR_0("\87\179\39\103\131\24\116\157\127\177\55\122\146", "\235\26\220\82\20\230\85\27")]) or (v176[LUAOBFUSACTOR_DECRYPT_STR_0("\189\178\236\208\93\134\177\252\214\64\145\177\236", "\20\232\193\137\162")] == Enum[LUAOBFUSACTOR_DECRYPT_STR_0("\23\204\192\180\206\130\7\100\54\235\220\182\226", "\17\66\191\165\198\135\236\119")][LUAOBFUSACTOR_DECRYPT_STR_0("\59\160\187\16\247", "\177\111\207\206\115\159\136\140")]))) then
+			local v193 = v176[LUAOBFUSACTOR_DECRYPT_STR_0("\53\134\3\29\192\70\80\11", "\63\101\233\112\116\180\47")] - v161;
+			v149[LUAOBFUSACTOR_DECRYPT_STR_0("\243\52\254\27\236\63\204\53", "\86\163\91\141\114\152")] = UDim2.new(v162['X'].Scale, v162['X'][LUAOBFUSACTOR_DECRYPT_STR_0("\124\13\114\96\63\71", "\90\51\107\20\19")] + v193['X'], v162['Y'].Scale, v162['Y'][LUAOBFUSACTOR_DECRYPT_STR_0("\162\246\131\252\56\153", "\93\237\144\229\143")] + v193['Y']);
+		end
+	end);
+	v149[LUAOBFUSACTOR_DECRYPT_STR_0("\56\249\229\10\14\100\0\226\228\22\5\23\54\250\249\26\0", "\38\117\150\144\121\107")]:Connect(function()
+		v146:Destroy();
+		if (v11 or (724 >= 1668)) then
+			v11();
+		end
+	end);
+end
+local v14 = v9();
+if ((428 < 1804) and v14 and v14[LUAOBFUSACTOR_DECRYPT_STR_0("\38\190\247", "\90\77\219\142")]) then
+	local v177 = v12(v14.key, true);
+	if (not v177 or (3325 > 4613)) then
+		v11();
+	end
+else
+	v11();
+end
