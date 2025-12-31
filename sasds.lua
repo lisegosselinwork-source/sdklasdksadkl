@@ -365,10 +365,11 @@ local function createMainGui(startMode)
 		Status.TextSize = 22;
 		Status.Font = Enum.Font.GothamBold;
 		Status.Position = UDim2.new(0, 0, 0.4, 0);
-		ButtonContainer.Position = UDim2.new(0, 0, 0.7, 0);
-	end
-	if (startMode == LUAOBFUSACTOR_DECRYPT_STR_0("\17\24\191\244\33\224\216\54\2\169\229", "\183\68\118\204\129\81\144")) then
-		setUnsupportedMode();
+		ButtonContainer.Position = UDim2.new(0, 0, 0.75, 0);
+		DiscordBtn.Visible = false;
+		CopyLinkBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\14\57\133\207\113\212\254\23\53\131\211\21", "\183\68\118\204\129\81\144");
+		CopyLinkBtn.Size = UDim2.new(0.6, 0, 1, 0);
+		CopyLinkBtn.Position = UDim2.new(0.2, 0, 0, 0);
 	end
 	ValidateBtn.MouseButton1Click:Connect(function()
 		local key = KeyInput.Text;
