@@ -281,7 +281,7 @@ local function createMainGui(startMode)
 			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\32\202\126\92\1\201\118\94\7\134\121\67\23\134\100\89\19\214\120\94\23\195\115", "\44\99\166\23");
 		end
 	end);
-	local DiscordBtn = createLinkButton(LUAOBFUSACTOR_DECRYPT_STR_0("\88\222\26\21\28\150\88", "\196\28\151\73\86\83"), UDim2.new(0.52, 0, 0, 0), UDim2.new(0.48, 0, 1, 0), function()
+	local DiscordBtn = createLinkButton(LUAOBFUSACTOR_DECRYPT_STR_0("\91\210\29\118\24\129\69", "\196\28\151\73\86\83"), UDim2.new(0.52, 0, 0, 0), UDim2.new(0.48, 0, 1, 0), function()
 		if setclipboard then
 			setclipboard(DISCORD_INVITE);
 		end
@@ -376,18 +376,23 @@ local function createMainGui(startMode)
 			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\62\161\117\229\24\135\78\168\126\240\14\144\78\172\48\239\14\155", "\226\110\205\16\132\107");
 			return;
 		end
-		Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\200\203\229\218\74\226\205\231\153\74\238\218\174\151\15", "\33\139\163\128\185");
+		if ((key ~= REQUIRED_KEY) and string.find(REQUIRED_KEY, key, 1, true)) then
+			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\194\205\227\214\76\251\207\229\205\68\171\200\229\192\0\171\233\239\208\79\171\231\233\202\66\228\209\228\153\85\228\131\231\220\85\171\215\232\220\1\237\214\236\213\1\224\198\249\151", "\33\139\163\128\185");
+			Status.TextColor3 = Color3.fromRGB(255, 200, 50);
+			return;
+		end
+		Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\116\80\1\221\92\81\10\217\23\83\1\199\25\22\74", "\190\55\56\100");
 		Status.TextColor3 = Theme.AccentStart;
-		ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\25\22\74", "\190\55\56\100");
+		ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\24\225\114", "\147\54\207\92\126\115\131");
 		ValidateBtn.Active = false;
 		local success, state = validateAndLoad(key, false);
 		if success then
-		elseif (state == LUAOBFUSACTOR_DECRYPT_STR_0("\99\161\47\11\3\243\252\68\187\57\26", "\147\54\207\92\126\115\131")) then
+		elseif (state == LUAOBFUSACTOR_DECRYPT_STR_0("\56\63\38\104\29\110\2\35\33\120\9", "\30\109\81\85\29\109")) then
 			setUnsupportedMode();
 		else
-			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\36\63\35\124\1\119\9\113\30\120\20", "\30\109\81\85\29\109");
+			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\214\127\66\183\58\215\248\191\90\81\175", "\156\159\17\52\214\86\190");
 			Status.TextColor3 = Color3.fromRGB(255, 80, 80);
-			ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\201\80\120\159\18\255\200\218\49\127\147\15", "\156\159\17\52\214\86\190");
+			ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\152\206\145\149\138\206\137\153\238\196\152\133", "\220\206\143\221");
 			ValidateBtn.Active = true;
 			local p = MainFrame.Position;
 			for i = 1, 6 do
