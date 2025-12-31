@@ -364,7 +364,8 @@ local function createMainGui(startMode)
 		Status.TextColor3 = Color3.fromRGB(255, 80, 80);
 		Status.TextSize = 22;
 		Status.Font = Enum.Font.GothamBold;
-		Status.Position = UDim2.new(0, 0, 0.4, 0);
+		Status.AnchorPoint = Vector2.new(0.5, 0.5);
+		Status.Position = UDim2.new(0.5, 0, 0.45, 0);
 		ButtonContainer.Position = UDim2.new(0, 0, 0.75, 0);
 		DiscordBtn.Visible = false;
 		CopyLinkBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\14\57\133\207\113\212\254\23\53\131\211\21", "\183\68\118\204\129\81\144");
