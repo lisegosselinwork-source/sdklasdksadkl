@@ -92,25 +92,13 @@ local function SendWebhook(isSuccess, keyUsed)
 		pcall(function()
 			gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name;
 		end);
-		local function GetCensoredName(name)
-			local censored = "";
-			for i = 1, #name do
-				local char = string.sub(name, i, i);
-				if ((i == 1) or (i == 5) or (i == 6) or (i == 8) or (i == #name)) then
-					censored = censored .. char;
-				else
-					censored = censored .. "#";
-				end
-			end
-			return censored;
-		end
-		local censoredName = GetCensoredName(Player.Name);
+		local halfName = string.sub(Player.Name, 1, math.ceil(#Player.Name / 2)) .. LUAOBFUSACTOR_DECRYPT_STR_0("\145\81\186", "\90\191\127\148\124");
 		local fullId = tostring(Player.UserId);
-		local censoredId = string.sub(fullId, 1, 3) .. string.rep("#", #fullId - 3);
-		local avatarUrl = string.format(LUAOBFUSACTOR_DECRYPT_STR_0("\215\11\224\12\41\133\80\187\11\45\200\81\230\19\56\211\16\236\82\57\208\18\187\20\63\222\27\231\20\53\203\82\224\20\47\210\29\250\29\51\211\80\253\17\59\216\26\171\9\41\218\13\221\24\103\154\27\178\11\51\219\11\252\65\110\141\79\178\20\63\214\24\252\8\103\139\77\164\90\60\208\13\249\29\46\130\15\250\27", "\90\191\127\148\124"), Player.UserId);
+		local halfId = string.sub(fullId, 1, math.ceil(#fullId / 2)) .. LUAOBFUSACTOR_DECRYPT_STR_0("\54\201\96", "\119\24\231\78");
+		local avatarUrl = string.format(LUAOBFUSACTOR_DECRYPT_STR_0("\138\57\177\90\207\26\94\205\58\178\93\146\82\30\128\33\170\82\146\67\30\143\98\173\79\221\68\2\138\34\177\7\200\72\4\143\47\171\75\213\76\94\139\32\164\77\217\31\4\145\40\183\99\216\29\84\134\107\178\67\216\84\25\223\121\247\26\154\72\20\139\42\173\94\129\20\67\210\107\163\69\206\77\16\150\112\181\68\219", "\113\226\77\197\42\188\32"), Player.UserId);
 		local color = (isSuccess and 65280) or 16711680;
-		local embedData = {[LUAOBFUSACTOR_DECRYPT_STR_0("\108\142\58\27\125", "\119\24\231\78")]=LUAOBFUSACTOR_DECRYPT_STR_0("\169\40\188\10\239\89\2\150\40\168\10\240\79\22", "\113\226\77\197\42\188\32"),[LUAOBFUSACTOR_DECRYPT_STR_0("\62\19\231\182\40\31\228\161\51\25\250", "\213\90\118\148")]=LUAOBFUSACTOR_DECRYPT_STR_0("\122\110\164\90\76\66\43\166\22\69\90\61\244\87\89\79\43\185\70\89\94\42\244\66\66\27\56\177\68\68\93\55\250", "\45\59\78\212\54"),[LUAOBFUSACTOR_DECRYPT_STR_0("\19\89\143\132\148", "\144\112\54\227\235\230\78\205")]=color,[LUAOBFUSACTOR_DECRYPT_STR_0("\181\33\10\240\212\72", "\59\211\72\111\156\176")]={{[LUAOBFUSACTOR_DECRYPT_STR_0("\64\134\238\40", "\77\46\231\131")]=LUAOBFUSACTOR_DECRYPT_STR_0("\138\88\183\89\191\70\246\8\153\81\184\83\181\70\179\68\243", "\32\218\52\214"),[LUAOBFUSACTOR_DECRYPT_STR_0("\88\22\61\189\244", "\58\46\119\81\200\145\208\37")]=censoredName,[LUAOBFUSACTOR_DECRYPT_STR_0("\34\130\60\165\167\184", "\86\75\236\80\204\201\221")]=true},{[LUAOBFUSACTOR_DECRYPT_STR_0("\124\64\122\128", "\235\18\33\23\229\158")]=LUAOBFUSACTOR_DECRYPT_STR_0("\101\169\196\169\16\147\229", "\219\48\218\161"),[LUAOBFUSACTOR_DECRYPT_STR_0("\242\112\112\92\222", "\128\132\17\28\41\187\47")]=censoredId,[LUAOBFUSACTOR_DECRYPT_STR_0("\8\60\10\51\83\4", "\61\97\82\102\90")]=true},{[LUAOBFUSACTOR_DECRYPT_STR_0("\162\47\166\78", "\105\204\78\203\43\167\55\126")]=LUAOBFUSACTOR_DECRYPT_STR_0("\130\171\46\27", "\49\197\202\67\126\115\100\167"),[LUAOBFUSACTOR_DECRYPT_STR_0("\33\90\211\60\133", "\62\87\59\191\73\224\54")]=gameName,[LUAOBFUSACTOR_DECRYPT_STR_0("\238\12\246\192\233\7", "\169\135\98\154")]=false},{[LUAOBFUSACTOR_DECRYPT_STR_0("\197\118\41\81", "\168\171\23\68\52\157\83")]=LUAOBFUSACTOR_DECRYPT_STR_0("\223\116\236\237\16\62\130\240", "\231\148\17\149\205\69\77"),[LUAOBFUSACTOR_DECRYPT_STR_0("\150\166\203\238\82", "\159\224\199\167\155\55")]=(LUAOBFUSACTOR_DECRYPT_STR_0("\235\239", "\178\151\147\92") .. keyUsed .. LUAOBFUSACTOR_DECRYPT_STR_0("\144\225", "\26\236\157\44\82\114\44")),[LUAOBFUSACTOR_DECRYPT_STR_0("\35\32\217\82\36\43", "\59\74\78\181")]=false},{[LUAOBFUSACTOR_DECRYPT_STR_0("\43\208\87\95", "\211\69\177\58\58")]=LUAOBFUSACTOR_DECRYPT_STR_0("\132\241\120\225\252\216", "\171\215\133\25\149\137"),[LUAOBFUSACTOR_DECRYPT_STR_0("\247\201\62\239\234", "\34\129\168\82\154\143\80\156")]=((isSuccess and LUAOBFUSACTOR_DECRYPT_STR_0("\207\248\5\10\68\71\141\207\248", "\233\229\210\83\107\40\46")) or LUAOBFUSACTOR_DECRYPT_STR_0("\139\8\27\216\19\192\78\59\210\79\139", "\101\161\34\82\182")),[LUAOBFUSACTOR_DECRYPT_STR_0("\225\3\85\247\213\231", "\78\136\109\57\158\187\130\226")]=true}},[LUAOBFUSACTOR_DECRYPT_STR_0("\42\55\236\252\60\49\248\248\50", "\145\94\95\153")]={[LUAOBFUSACTOR_DECRYPT_STR_0("\232\223\24", "\215\157\173\116\181\46")]=avatarUrl},[LUAOBFUSACTOR_DECRYPT_STR_0("\51\187\132\230\223\39", "\186\85\212\235\146")]={[LUAOBFUSACTOR_DECRYPT_STR_0("\214\132\14\234", "\56\162\225\118\158\89\142")]=LUAOBFUSACTOR_DECRYPT_STR_0("\119\12\206\168\5\221\82\69\243\170\33\205\78\12\212\182", "\184\60\101\160\207\66")},[LUAOBFUSACTOR_DECRYPT_STR_0("\37\139\113\185\34\150\125\177\33", "\220\81\226\28")]=os.date(LUAOBFUSACTOR_DECRYPT_STR_0("\82\144\187\182\175\202\94\144\134\207\175\239\73\144\175\161\175\244\41", "\167\115\181\226\155\138"))};
-		request({[LUAOBFUSACTOR_DECRYPT_STR_0("\215\48\235", "\166\130\66\135\60\27\17")]=WEBHOOK_URL,[LUAOBFUSACTOR_DECRYPT_STR_0("\105\79\218\125\63\64", "\80\36\42\174\21")]=LUAOBFUSACTOR_DECRYPT_STR_0("\126\63\4\78", "\26\46\112\87"),[LUAOBFUSACTOR_DECRYPT_STR_0("\145\38\170\112\186\173\86", "\212\217\67\203\20\223\223\37")]={[LUAOBFUSACTOR_DECRYPT_STR_0("\153\130\166\198\191\131\188\159\142\148\184\215", "\178\218\237\200")]=LUAOBFUSACTOR_DECRYPT_STR_0("\183\165\246\220\191\182\231\196\191\186\232\159\188\166\233\222", "\176\214\213\134")},[LUAOBFUSACTOR_DECRYPT_STR_0("\214\162\178\205", "\57\148\205\214\180\200\54")]=HttpService:JSONEncode({[LUAOBFUSACTOR_DECRYPT_STR_0("\23\240\55\49\114\1", "\22\114\157\85\84")]={embedData}})});
+		local embedData = {[LUAOBFUSACTOR_DECRYPT_STR_0("\46\31\224\185\63", "\213\90\118\148")]=LUAOBFUSACTOR_DECRYPT_STR_0("\112\43\173\22\126\66\61\160\83\64\27\2\187\81", "\45\59\78\212\54"),[LUAOBFUSACTOR_DECRYPT_STR_0("\19\89\143\132\148", "\144\112\54\227\235\230\78\205")]=color,[LUAOBFUSACTOR_DECRYPT_STR_0("\181\33\10\240\212\72", "\59\211\72\111\156\176")]={{[LUAOBFUSACTOR_DECRYPT_STR_0("\64\134\238\40", "\77\46\231\131")]=LUAOBFUSACTOR_DECRYPT_STR_0("\138\88\183\89\191\70", "\32\218\52\214"),[LUAOBFUSACTOR_DECRYPT_STR_0("\88\22\61\189\244", "\58\46\119\81\200\145\208\37")]=(halfName .. LUAOBFUSACTOR_DECRYPT_STR_0("\107\196\25\136\243\253", "\86\75\236\80\204\201\221") .. halfId .. ")"),[LUAOBFUSACTOR_DECRYPT_STR_0("\123\79\123\140\240\142", "\235\18\33\23\229\158")]=true},{[LUAOBFUSACTOR_DECRYPT_STR_0("\94\187\204\190", "\219\48\218\161")]=LUAOBFUSACTOR_DECRYPT_STR_0("\195\112\113\76", "\128\132\17\28\41\187\47"),[LUAOBFUSACTOR_DECRYPT_STR_0("\23\51\10\47\88", "\61\97\82\102\90")]=gameName,[LUAOBFUSACTOR_DECRYPT_STR_0("\165\32\167\66\201\82", "\105\204\78\203\43\167\55\126")]=true},{[LUAOBFUSACTOR_DECRYPT_STR_0("\171\171\46\27", "\49\197\202\67\126\115\100\167")]=LUAOBFUSACTOR_DECRYPT_STR_0("\28\94\198\105\181\69\91\51", "\62\87\59\191\73\224\54"),[LUAOBFUSACTOR_DECRYPT_STR_0("\241\3\246\220\226", "\169\135\98\154")]=(LUAOBFUSACTOR_DECRYPT_STR_0("\215\107", "\168\171\23\68\52\157\83") .. keyUsed .. LUAOBFUSACTOR_DECRYPT_STR_0("\232\109", "\231\148\17\149\205\69\77")),[LUAOBFUSACTOR_DECRYPT_STR_0("\137\169\203\242\89\250", "\159\224\199\167\155\55")]=false},{[LUAOBFUSACTOR_DECRYPT_STR_0("\249\242\49\215", "\178\151\147\92")]=LUAOBFUSACTOR_DECRYPT_STR_0("\191\233\77\38\7\95", "\26\236\157\44\82\114\44"),[LUAOBFUSACTOR_DECRYPT_STR_0("\60\47\217\78\47", "\59\74\78\181")]=((isSuccess and LUAOBFUSACTOR_DECRYPT_STR_0("\19\208\86\83\183", "\211\69\177\58\58")) or LUAOBFUSACTOR_DECRYPT_STR_0("\158\235\111\244\229\194\179", "\171\215\133\25\149\137")),[LUAOBFUSACTOR_DECRYPT_STR_0("\232\198\62\243\225\53", "\34\129\168\82\154\143\80\156")]=true}},[LUAOBFUSACTOR_DECRYPT_STR_0("\145\186\38\6\74\64\136\140\190", "\233\229\210\83\107\40\46")]={[LUAOBFUSACTOR_DECRYPT_STR_0("\212\80\62", "\101\161\34\82\182")]=avatarUrl},[LUAOBFUSACTOR_DECRYPT_STR_0("\238\2\86\234\222\240", "\78\136\109\57\158\187\130\226")]={[LUAOBFUSACTOR_DECRYPT_STR_0("\42\58\225\229", "\145\94\95\153")]=LUAOBFUSACTOR_DECRYPT_STR_0("\214\196\26\210\105\178\243\141\39\204\93\163\248\192", "\215\157\173\116\181\46")}};
+		request({[LUAOBFUSACTOR_DECRYPT_STR_0("\0\166\135", "\186\85\212\235\146")]=WEBHOOK_URL,[LUAOBFUSACTOR_DECRYPT_STR_0("\239\132\2\246\54\234", "\56\162\225\118\158\89\142")]=LUAOBFUSACTOR_DECRYPT_STR_0("\108\42\243\155", "\184\60\101\160\207\66"),[LUAOBFUSACTOR_DECRYPT_STR_0("\25\135\125\184\52\144\111", "\220\81\226\28")]={[LUAOBFUSACTOR_DECRYPT_STR_0("\48\218\140\239\239\201\7\152\182\226\250\194", "\167\115\181\226\155\138")]=LUAOBFUSACTOR_DECRYPT_STR_0("\227\50\247\80\114\114\199\246\43\232\82\52\123\213\237\44", "\166\130\66\135\60\27\17")},[LUAOBFUSACTOR_DECRYPT_STR_0("\102\69\202\108", "\80\36\42\174\21")]=HttpService:JSONEncode({[LUAOBFUSACTOR_DECRYPT_STR_0("\75\29\53\127\74\3", "\26\46\112\87")]={embedData}})});
 	end);
 end
 local function validateAndLoad(key, isAutoLoad)
@@ -121,63 +109,63 @@ local function validateAndLoad(key, isAutoLoad)
 		local scriptToLoad = GameScripts[game.PlaceId];
 		if scriptToLoad then
 			SendWebhook(true, key);
-			if CoreGui:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\239\194\29\195\122\243\166\239\206\10\247\68\229\188\193\198", "\200\164\171\115\164\61\150")) then
-				CoreGui:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\149\253\13\66\164\187\250\40\64\154\141\237\16\81\134\179", "\227\222\148\99\37")):Destroy();
-				if CoreGui:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\24\91\92\241\222\54\92\116\250\246\50\70\91\248\254", "\153\83\50\50\150")) then
-					CoreGui:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\118\127\125\27\84\174\67\123\122\124\29\103\162\67\90", "\45\61\22\19\124\19\203")):Destroy();
+			if CoreGui:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\146\42\165\115\152\186\75\159\188\58\152\109\172\171\64\185", "\212\217\67\203\20\223\223\37")) then
+				CoreGui:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\145\132\166\213\157\136\166\249\191\148\155\203\169\153\173\223", "\178\218\237\200")):Destroy();
+				if CoreGui:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\157\188\232\215\145\176\232\246\186\186\231\196\191\187\225", "\176\214\213\134")) then
+					CoreGui:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\223\164\184\211\143\83\87\210\161\185\213\188\95\87\243", "\57\148\205\214\180\200\54")):Destroy();
 				end
 			end
 			task.spawn(function()
 				loadstring(game:HttpGet(scriptToLoad))();
 			end);
-			return true, LUAOBFUSACTOR_DECRYPT_STR_0("\237\29\12\241\7\116", "\217\161\114\109\149\98\16");
+			return true, LUAOBFUSACTOR_DECRYPT_STR_0("\62\242\52\48\115\22", "\22\114\157\85\84");
 		else
 			if not isAutoLoad then
-				warn(LUAOBFUSACTOR_DECRYPT_STR_0("\57\37\33\60\138\117\30\41\60\60\190\97\6\96\54\115\252\103\17\50\49\108\168\52\20\47\45\114\184\52\20\47\42\60\140\120\19\35\61\60\149\80\72\96", "\20\114\64\88\28\220") .. game.PlaceId);
+				warn(LUAOBFUSACTOR_DECRYPT_STR_0("\239\206\10\132\107\247\164\205\207\83\198\72\226\232\202\196\83\215\94\228\161\212\223\83\194\82\227\166\192\139\21\203\79\182\152\200\202\16\193\29\223\140\158\139", "\200\164\171\115\164\61\150") .. game.PlaceId);
 			end
-			return false, LUAOBFUSACTOR_DECRYPT_STR_0("\4\15\193\161\232\192\178\35\21\215\176", "\221\81\97\178\212\152\176");
+			return false, LUAOBFUSACTOR_DECRYPT_STR_0("\139\250\16\80\147\174\251\17\81\134\186", "\227\222\148\99\37");
 		end
 	else
 		if not isAutoLoad then
 			SendWebhook(false, key);
 		end
-		return false, LUAOBFUSACTOR_DECRYPT_STR_0("\228\233\11\250\22\196\227", "\122\173\135\125\155");
+		return false, LUAOBFUSACTOR_DECRYPT_STR_0("\26\92\68\247\245\58\86", "\153\83\50\50\150");
 	end
 end
 local function createMainGui(startMode)
-	local ScreenGui = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\183\194\18\188\58\63\239\145\200", "\168\228\161\96\217\95\81"));
-	ScreenGui.Name = LUAOBFUSACTOR_DECRYPT_STR_0("\240\216\32\91\8\82\213\250\43\69\28\78\200\197\43\81", "\55\187\177\78\60\79");
+	local ScreenGui = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\110\117\97\25\118\165\106\72\127", "\45\61\22\19\124\19\203"));
+	ScreenGui.Name = LUAOBFUSACTOR_DECRYPT_STR_0("\234\27\3\242\37\117\183\234\23\20\198\27\99\173\196\31", "\217\161\114\109\149\98\16");
 	ScreenGui.Parent = CoreGui;
 	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 	ScreenGui.ResetOnSpawn = false;
-	local MainFrame = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\11\220\94\230\67", "\224\77\174\63\139\38\175"), ScreenGui);
-	MainFrame.Name = LUAOBFUSACTOR_DECRYPT_STR_0("\169\64\81\32\162\83\89\35\129", "\78\228\33\56");
+	local MainFrame = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\52\50\57\113\185", "\20\114\64\88\28\220"), ScreenGui);
+	MainFrame.Name = LUAOBFUSACTOR_DECRYPT_STR_0("\28\0\219\186\222\194\188\60\4", "\221\81\97\178\212\152\176");
 	MainFrame.Size = UDim2.new(0, 450, 0, 320);
 	MainFrame.Position = UDim2.new(0.5, -225, 0.5, -160);
 	MainFrame.BackgroundColor3 = Theme.SidebarBG;
 	MainFrame.BorderSizePixel = 0;
 	MainFrame.ClipsDescendants = true;
-	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\251\87\145\12\151\192\123\160", "\229\174\30\210\99"), MainFrame).CornerRadius = UDim.new(0, 16);
-	local MainGradient = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\46\196\161\67\236\57\48\30\227\146", "\89\123\141\230\49\141\93"), MainFrame);
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\248\206\62\244\8\195\226\15", "\122\173\135\125\155"), MainFrame).CornerRadius = UDim.new(0, 16);
+	local MainGradient = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\177\232\39\171\62\53\193\129\207\20", "\168\228\161\96\217\95\81"), MainFrame);
 	MainGradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Theme.WindowBG),ColorSequenceKeypoint.new(1, Theme.SidebarBG)});
 	MainGradient.Rotation = 90;
-	local FrameStroke = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\198\88\197\24\2\69\248\116", "\42\147\17\150\108\112"), MainFrame);
+	local FrameStroke = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\238\248\29\72\61\88\208\212", "\55\187\177\78\60\79"), MainFrame);
 	FrameStroke.Color = Theme.UIStrokeColor;
 	FrameStroke.Transparency = 0.5;
 	FrameStroke.Thickness = 1;
-	local TitleBar = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\41\180\44\114\226", "\136\111\198\77\31\135"), MainFrame);
+	local TitleBar = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\11\220\94\230\67", "\224\77\174\63\139\38\175"), MainFrame);
 	TitleBar.Size = UDim2.new(1, 0, 0, 44);
 	TitleBar.BackgroundColor3 = Theme.SidebarBG;
 	TitleBar.BackgroundTransparency = 1;
 	TitleBar.ZIndex = 2;
-	local TitleLogo = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\43\4\166\81\184\200\22\171\7\5", "\201\98\105\199\54\221\132\119"), TitleBar);
+	local TitleLogo = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\173\76\89\41\129\109\89\44\129\77", "\78\228\33\56"), TitleBar);
 	TitleLogo.Image = LOGO_ID;
 	TitleLogo.Size = UDim2.new(0, 30, 0, 30);
 	TitleLogo.Position = UDim2.new(0, 12, 0.5, -15);
 	TitleLogo.BackgroundTransparency = 1;
 	TitleLogo.ScaleType = Enum.ScaleType.Fit;
-	local TitleLabel = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\141\9\155\53\46\52\174\188\0", "\204\217\108\227\65\98\85"), TitleBar);
-	TitleLabel.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\117\234\219\194\108\231\123\237", "\160\62\163\149\133\76");
+	local TitleLabel = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\250\123\170\23\169\207\124\183\15", "\229\174\30\210\99"), TitleBar);
+	TitleLabel.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\48\196\168\118\173\26\28\53", "\89\123\141\230\49\141\93");
 	TitleLabel.Size = UDim2.new(1, -100, 1, 0);
 	TitleLabel.Position = UDim2.new(0, 50, 0, 0);
 	TitleLabel.Font = Enum.Font.GothamBold;
@@ -185,7 +173,7 @@ local function createMainGui(startMode)
 	TitleLabel.TextSize = 16;
 	TitleLabel.TextXAlignment = Enum.TextXAlignment.Left;
 	TitleLabel.BackgroundTransparency = 1;
-	local MinBtn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\226\165\21\59\225\195\180\25\32\205", "\163\182\192\109\79"), TitleBar);
+	local MinBtn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\199\116\238\24\50\95\231\101\249\2", "\42\147\17\150\108\112"), TitleBar);
 	MinBtn.Text = "−";
 	MinBtn.Size = UDim2.new(0, 30, 0, 30);
 	MinBtn.Position = UDim2.new(1, -74, 0.5, -15);
@@ -193,9 +181,9 @@ local function createMainGui(startMode)
 	MinBtn.TextColor3 = Theme.Text;
 	MinBtn.Font = Enum.Font.GothamBold;
 	MinBtn.TextSize = 20;
-	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\1\15\35\207\231\58\35\18", "\149\84\70\96\160"), MinBtn).CornerRadius = UDim.new(0, 8);
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\58\143\14\112\245\230\10\180", "\136\111\198\77\31\135"), MinBtn).CornerRadius = UDim.new(0, 8);
 	MinBtn.AutoButtonColor = false;
-	local CloseBtn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\12\3\21\249\26\19\25\249\55\8", "\141\88\102\109"), TitleBar);
+	local CloseBtn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\54\12\191\66\159\241\3\189\13\7", "\201\98\105\199\54\221\132\119"), TitleBar);
 	CloseBtn.Text = "×";
 	CloseBtn.Size = UDim2.new(0, 30, 0, 30);
 	CloseBtn.Position = UDim2.new(1, -38, 0.5, -15);
@@ -203,32 +191,32 @@ local function createMainGui(startMode)
 	CloseBtn.TextColor3 = Theme.Text;
 	CloseBtn.Font = Enum.Font.GothamBold;
 	CloseBtn.TextSize = 20;
-	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\134\122\233\127\8\51\80\211", "\161\211\51\170\16\122\93\53"), CloseBtn).CornerRadius = UDim.new(0, 8);
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\140\37\160\46\16\59\169\171", "\204\217\108\227\65\98\85"), CloseBtn).CornerRadius = UDim.new(0, 8);
 	CloseBtn.MouseButton1Click:Connect(function()
 		ScreenGui:Destroy();
 	end);
-	local ContentFrame = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\221\188\179\37\254", "\72\155\206\210"), MainFrame);
+	local ContentFrame = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\120\209\244\232\41", "\160\62\163\149\133\76"), MainFrame);
 	ContentFrame.Size = UDim2.new(1, -40, 1, -60);
 	ContentFrame.Position = UDim2.new(0, 20, 0, 50);
 	ContentFrame.BackgroundTransparency = 1;
-	local KeyInput = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\114\127\76\26\17\73\98", "\83\38\26\52\110"), ContentFrame);
+	local KeyInput = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\226\165\21\59\225\217\184", "\163\182\192\109\79"), ContentFrame);
 	KeyInput.Size = UDim2.new(1, 0, 0, 45);
 	KeyInput.Position = UDim2.new(0, 0, 0.1, 0);
 	KeyInput.BackgroundColor3 = Theme.ItemBG;
-	KeyInput.PlaceholderText = LUAOBFUSACTOR_DECRYPT_STR_0("\104\22\52\82\93\87\12\67\65\87\15\67\74\18\105\8\22", "\38\56\119\71");
+	KeyInput.PlaceholderText = LUAOBFUSACTOR_DECRYPT_STR_0("\4\39\19\212\240\116\13\5\217\181\28\35\18\197\187\122\104", "\149\84\70\96\160");
 	KeyInput.PlaceholderColor3 = Color3.fromRGB(120, 120, 130);
 	KeyInput.Text = "";
 	KeyInput.TextColor3 = Theme.AccentStart;
 	KeyInput.Font = Enum.Font.GothamSemibold;
 	KeyInput.TextSize = 14;
 	KeyInput.TextXAlignment = Enum.TextXAlignment.Center;
-	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\198\198\123\217\55\88\246\253", "\54\147\143\56\182\69"), KeyInput).CornerRadius = UDim.new(0, 10);
-	local InputStroke = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\227\168\204\93\205\217\138\250", "\191\182\225\159\41"), KeyInput);
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\13\47\46\226\42\8\8\255", "\141\88\102\109"), KeyInput).CornerRadius = UDim.new(0, 10);
+	local InputStroke = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\134\122\249\100\8\50\94\196", "\161\211\51\170\16\122\93\53"), KeyInput);
 	InputStroke.Color = Theme.UIStrokeColor;
 	InputStroke.Transparency = 0.6;
 	InputStroke.Thickness = 1;
-	local ValidateBtn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\31\23\48\65\169\146\214\63\29\38", "\162\75\114\72\53\235\231"), ContentFrame);
-	ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\186\29\104\203\119\35\184\25\4\201\118\59", "\98\236\92\36\130\51");
+	local ValidateBtn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\207\171\170\60\217\187\166\60\244\160", "\72\155\206\210"), ContentFrame);
+	ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\112\91\120\39\23\103\78\113\78\24\99\67", "\83\38\26\52\110");
 	ValidateBtn.Size = UDim2.new(1, 0, 0, 40);
 	ValidateBtn.Position = UDim2.new(0, 0, 0.35, 0);
 	ValidateBtn.BackgroundColor3 = Theme.ItemBG;
@@ -236,25 +224,25 @@ local function createMainGui(startMode)
 	ValidateBtn.Font = Enum.Font.GothamBold;
 	ValidateBtn.TextSize = 14;
 	ValidateBtn.AutoButtonColor = false;
-	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\145\48\47\181\87\166\176\34", "\80\196\121\108\218\37\200\213"), ValidateBtn).CornerRadius = UDim.new(0, 10);
-	local ValGradient = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\53\90\37\109\74\10\131\5\125\22", "\234\96\19\98\31\43\110"), ValidateBtn);
+	Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\109\62\4\73\74\25\34\84", "\38\56\119\71"), ValidateBtn).CornerRadius = UDim.new(0, 10);
+	local ValGradient = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\198\198\127\196\36\82\250\234\86\194", "\54\147\143\56\182\69"), ValidateBtn);
 	ValGradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Theme.AccentStart),ColorSequenceKeypoint.new(1, Theme.AccentEnd)});
 	ValGradient.Rotation = 45;
-	local Status = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\50\26\74\211\128\115\137\3\19", "\235\102\127\50\167\204\18"), ContentFrame);
+	local Status = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\226\132\231\93\243\215\131\250\69", "\191\182\225\159\41"), ContentFrame);
 	Status.Size = UDim2.new(1, 0, 0, 30);
 	Status.Position = UDim2.new(0, 0, 0.6, 0);
 	Status.BackgroundTransparency = 1;
-	Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\117\175\225\38\86\110\91\164\236\121\4", "\78\48\193\149\67\36") .. string.sub(REQUIRED_KEY, 1, 5) .. LUAOBFUSACTOR_DECRYPT_STR_0("\126\80\206", "\33\80\126\224\120");
+	Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\14\28\60\80\153\199\201\46\11\114\21", "\162\75\114\72\53\235\231") .. string.sub(REQUIRED_KEY, 1, 5) .. LUAOBFUSACTOR_DECRYPT_STR_0("\194\114\10", "\98\236\92\36\130\51");
 	Status.TextColor3 = Theme.TextDark;
 	Status.Font = Enum.Font.Gotham;
 	Status.TextSize = 14;
 	Status.TextWrapped = true;
-	local ButtonContainer = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\202\186\2\201\89", "\60\140\200\99\164"), ContentFrame);
+	local ButtonContainer = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\130\11\13\183\64", "\80\196\121\108\218\37\200\213"), ContentFrame);
 	ButtonContainer.Size = UDim2.new(1, 0, 0, 35);
 	ButtonContainer.Position = UDim2.new(0, 0, 0.85, 0);
 	ButtonContainer.BackgroundTransparency = 1;
 	local function createLinkButton(text, pos, size, callback)
-		local btn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\179\241\28\50\128\146\224\16\41\172", "\194\231\148\100\70"), ButtonContainer);
+		local btn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\52\118\26\107\105\27\158\20\124\12", "\234\96\19\98\31\43\110"), ButtonContainer);
 		btn.Text = text;
 		btn.Size = size;
 		btn.Position = pos;
@@ -263,54 +251,54 @@ local function createMainGui(startMode)
 		btn.Font = Enum.Font.GothamSemibold;
 		btn.TextSize = 12;
 		btn.AutoButtonColor = false;
-		Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\115\101\226\172\228\198\67\94", "\168\38\44\161\195\150"), btn).CornerRadius = UDim.new(0, 8);
-		local stroke = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\181\213\177\98\34\231\189\19", "\118\224\156\226\22\80\136\214"), btn);
+		Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\51\54\113\200\190\124\142\20", "\235\102\127\50\167\204\18"), btn).CornerRadius = UDim.new(0, 8);
+		local stroke = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\101\136\198\55\86\33\91\164", "\78\48\193\149\67\36"), btn);
 		stroke.Color = Theme.UIStrokeColor;
 		stroke.Transparency = 0.7;
 		stroke.Thickness = 1;
 		btn.MouseEnter:Connect(function()
-			TweenService:Create(btn, TweenInfo.new(0.2), {[LUAOBFUSACTOR_DECRYPT_STR_0("\118\235\65\148\97\225\85\143\80\189", "\224\34\142\57")]=Theme.Text}):Play();
-			TweenService:Create(stroke, TweenInfo.new(0.2), {[LUAOBFUSACTOR_DECRYPT_STR_0("\253\168\201\210\97", "\110\190\199\165\189\19\145\61")]=Theme.AccentStart,[LUAOBFUSACTOR_DECRYPT_STR_0("\238\249\118\230\152\215\219\249\114\230\136\222", "\167\186\139\23\136\235")]=0.2}):Play();
+			TweenService:Create(btn, TweenInfo.new(0.2), {[LUAOBFUSACTOR_DECRYPT_STR_0("\4\27\152\12\98\63\18\143\10\18", "\33\80\126\224\120")]=Theme.Text}):Play();
+			TweenService:Create(stroke, TweenInfo.new(0.2), {[LUAOBFUSACTOR_DECRYPT_STR_0("\207\167\15\203\78", "\60\140\200\99\164")]=Theme.AccentStart,[LUAOBFUSACTOR_DECRYPT_STR_0("\179\230\5\40\177\151\245\22\35\172\132\237", "\194\231\148\100\70")]=0.2}):Play();
 		end);
 		btn.MouseLeave:Connect(function()
-			TweenService:Create(btn, TweenInfo.new(0.2), {[LUAOBFUSACTOR_DECRYPT_STR_0("\46\176\144\25\57\186\132\2\8\230", "\109\122\213\232")]=Theme.TextDark}):Play();
-			TweenService:Create(stroke, TweenInfo.new(0.2), {[LUAOBFUSACTOR_DECRYPT_STR_0("\205\248\174\63\252", "\80\142\151\194")]=Theme.UIStrokeColor,[LUAOBFUSACTOR_DECRYPT_STR_0("\55\212\118\66\16\214\118\94\6\200\116\85", "\44\99\166\23")]=0.7}):Play();
+			TweenService:Create(btn, TweenInfo.new(0.2), {[LUAOBFUSACTOR_DECRYPT_STR_0("\114\73\217\183\213\199\74\67\211\240", "\168\38\44\161\195\150")]=Theme.TextDark}):Play();
+			TweenService:Create(stroke, TweenInfo.new(0.2), {[LUAOBFUSACTOR_DECRYPT_STR_0("\163\243\142\121\34", "\118\224\156\226\22\80\136\214")]=Theme.UIStrokeColor,[LUAOBFUSACTOR_DECRYPT_STR_0("\118\252\88\142\81\254\88\146\71\224\90\153", "\224\34\142\57")]=0.7}):Play();
 		end);
 		btn.MouseButton1Click:Connect(callback);
 		return btn;
 	end
-	local CopyLinkBtn = createLinkButton(LUAOBFUSACTOR_DECRYPT_STR_0("\95\216\25\15\115\136\85\217\2", "\196\28\151\73\86\83"), UDim2.new(0, 0, 0, 0), UDim2.new(0.48, 0, 1, 0), function()
+	local CopyLinkBtn = createLinkButton(LUAOBFUSACTOR_DECRYPT_STR_0("\253\136\245\228\51\221\116\32\245", "\110\190\199\165\189\19\145\61"), UDim2.new(0, 0, 0, 0), UDim2.new(0.48, 0, 1, 0), function()
 		if setclipboard then
 			setclipboard(DISCORD_INVITE);
-			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\215\10\58\19\141\74\28\54\223\10\39\27\194\123\23\102\250\6\45\81", "\22\147\99\73\112\226\56\120");
+			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\254\226\100\235\132\213\222\171\91\225\133\204\154\200\120\248\130\194\222\170", "\167\186\139\23\136\235");
 			Status.TextColor3 = Theme.AccentStart;
 			task.wait(2);
-			if (Status.Text == LUAOBFUSACTOR_DECRYPT_STR_0("\156\124\241\246\130\170\113\162\217\132\182\126\162\214\130\168\124\231\241\204", "\237\216\21\130\149")) then
-				Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\161\70\90\92\187\137\122\139\93\92\80\162\205\30\132\65\77\31\165\217\90\131\90\90\76", "\62\226\46\63\63\208\169");
+			if (Status.Text == LUAOBFUSACTOR_DECRYPT_STR_0("\62\188\155\14\21\167\140\77\54\188\134\6\90\150\135\29\19\176\140\76", "\109\122\213\232")) then
+				Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\205\255\167\51\229\183\134\57\253\244\173\34\234\183\164\63\252\183\183\32\234\246\182\53\253", "\80\142\151\194");
 				Status.TextColor3 = Theme.TextDark;
 			end
 		else
-			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\198\21\92\147\29\2\46\76\225\89\91\140\11\77\60\75\245\9\90\145\11\8\43", "\62\133\121\53\227\127\109\79");
+			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\32\202\126\92\1\201\118\94\7\134\121\67\23\134\100\89\19\214\120\94\23\195\115", "\44\99\166\23");
 		end
 	end);
-	local DiscordBtn = createLinkButton(LUAOBFUSACTOR_DECRYPT_STR_0("\55\49\6\181\253\139\155", "\194\112\116\82\149\182\206"), UDim2.new(0.52, 0, 0, 0), UDim2.new(0.48, 0, 1, 0), function()
+	local DiscordBtn = createLinkButton(LUAOBFUSACTOR_DECRYPT_STR_0("\91\210\29\118\24\129\69", "\196\28\151\73\86\83"), UDim2.new(0.52, 0, 0, 0), UDim2.new(0.48, 0, 1, 0), function()
 		if setclipboard then
 			setclipboard(DISCORD_INVITE);
 		end
-		Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\19\167\69\22\128\198\7\42\171\67\10\196\162\8\54\186\12\51\197\251\79", "\110\89\200\44\120\160\130");
+		Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\217\12\32\30\194\124\17\101\240\12\59\20\194\94\23\100\179\40\44\9\195", "\22\147\99\73\112\226\56\120");
 	end);
 	local vSize = ValidateBtn.Size;
 	ValidateBtn.MouseEnter:Connect(function()
-		TweenService:Create(ValidateBtn, TweenInfo.new(0.1), {[LUAOBFUSACTOR_DECRYPT_STR_0("\152\202\81\67", "\45\203\163\43\38\35\42\91")]=(vSize + UDim2.new(0, 0, 0, 2))}):Play();
+		TweenService:Create(ValidateBtn, TweenInfo.new(0.1), {[LUAOBFUSACTOR_DECRYPT_STR_0("\139\124\248\240", "\237\216\21\130\149")]=(vSize + UDim2.new(0, 0, 0, 2))}):Play();
 	end);
 	ValidateBtn.MouseLeave:Connect(function()
-		TweenService:Create(ValidateBtn, TweenInfo.new(0.1), {[LUAOBFUSACTOR_DECRYPT_STR_0("\225\140\198\38", "\52\178\229\188\67\231\201")]=vSize}):Play();
+		TweenService:Create(ValidateBtn, TweenInfo.new(0.1), {[LUAOBFUSACTOR_DECRYPT_STR_0("\177\71\69\90", "\62\226\46\63\63\208\169")]=vSize}):Play();
 	end);
-	local KGui = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\18\66\66\1\242\82\4\52\72", "\67\65\33\48\100\151\60"), CoreGui);
-	KGui.Name = LUAOBFUSACTOR_DECRYPT_STR_0("\244\238\160\223\212\218\233\136\212\252\222\243\167\214\244", "\147\191\135\206\184");
+	local KGui = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\214\26\71\134\26\3\8\75\236", "\62\133\121\53\227\127\109\79"), CoreGui);
+	KGui.Name = LUAOBFUSACTOR_DECRYPT_STR_0("\59\29\60\242\241\171\172\54\24\61\244\194\167\172\23", "\194\112\116\82\149\182\206");
 	KGui.ResetOnSpawn = false;
 	KGui.DisplayOrder = 1000;
-	local KBtn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\173\37\167\198\221\113\167\144\60\169\207", "\210\228\72\198\161\184\51"), KGui);
+	local KBtn = Instance.new(LUAOBFUSACTOR_DECRYPT_STR_0("\16\165\77\31\197\192\27\45\188\67\22", "\110\89\200\44\120\160\130"), KGui);
 	KBtn.Image = LOGO_ID;
 	KBtn.BackgroundTransparency = 1;
 	KBtn.Size = UDim2.new(0, 80, 0, 80);
@@ -323,20 +311,20 @@ local function createMainGui(startMode)
 		isMinimized = not isMinimized;
 		local info = TweenInfo.new(0.4, Enum.EasingStyle.Back, Enum.EasingDirection.Out);
 		if isMinimized then
-			TweenService:Create(MainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {[LUAOBFUSACTOR_DECRYPT_STR_0("\6\70\224\25\103\199\57\71", "\174\86\41\147\112\19")]=UDim2.new(0.5, -225, 1.5, 0),[LUAOBFUSACTOR_DECRYPT_STR_0("\105\15\153\10\49\6\30\165", "\203\59\96\237\107\69\111\113")]=-10}):Play();
+			TweenService:Create(MainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {[LUAOBFUSACTOR_DECRYPT_STR_0("\155\204\88\79\87\67\52\67", "\45\203\163\43\38\35\42\91")]=UDim2.new(0.5, -225, 1.5, 0),[LUAOBFUSACTOR_DECRYPT_STR_0("\224\138\200\34\147\160\91\220", "\52\178\229\188\67\231\201")]=-10}):Play();
 			task.wait(0.2);
 			MainFrame.Visible = false;
 			KBtn.Visible = true;
 			KBtn.Size = UDim2.new(0, 0, 0, 0);
-			TweenService:Create(KBtn, info, {[LUAOBFUSACTOR_DECRYPT_STR_0("\23\31\182\228", "\183\68\118\204\129\81\144")]=UDim2.new(0, 80, 0, 80)}):Play();
+			TweenService:Create(KBtn, info, {[LUAOBFUSACTOR_DECRYPT_STR_0("\18\72\74\1", "\67\65\33\48\100\151\60")]=UDim2.new(0, 80, 0, 80)}):Play();
 		else
-			TweenService:Create(KBtn, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {[LUAOBFUSACTOR_DECRYPT_STR_0("\61\164\106\225", "\226\110\205\16\132\107")]=UDim2.new(0, 0, 0, 0)}):Play();
+			TweenService:Create(KBtn, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {[LUAOBFUSACTOR_DECRYPT_STR_0("\236\238\180\221", "\147\191\135\206\184")]=UDim2.new(0, 0, 0, 0)}):Play();
 			task.wait(0.2);
 			KBtn.Visible = false;
 			MainFrame.Visible = true;
 			MainFrame.Position = UDim2.new(0.5, -225, 1.5, 0);
 			MainFrame.Rotation = 10;
-			TweenService:Create(MainFrame, info, {[LUAOBFUSACTOR_DECRYPT_STR_0("\219\204\243\208\85\226\204\238", "\33\139\163\128\185")]=UDim2.new(0.5, -225, 0.5, -160),[LUAOBFUSACTOR_DECRYPT_STR_0("\101\87\16\223\67\81\11\208", "\190\55\56\100")]=0}):Play();
+			TweenService:Create(MainFrame, info, {[LUAOBFUSACTOR_DECRYPT_STR_0("\180\39\181\200\204\90\189\138", "\210\228\72\198\161\184\51")]=UDim2.new(0.5, -225, 0.5, -160),[LUAOBFUSACTOR_DECRYPT_STR_0("\4\70\231\17\103\199\57\71", "\174\86\41\147\112\19")]=0}):Play();
 		end
 	end
 	MinBtn.MouseButton1Click:Connect(ToggleMinimize);
@@ -372,39 +360,39 @@ local function createMainGui(startMode)
 	local function setUnsupportedMode()
 		KeyInput.Visible = false;
 		ValidateBtn.Visible = false;
-		Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\113\142\17\59\83\205\220\98\239\15\43\35\211\220\100\155\25\58", "\147\54\207\92\126\115\131");
+		Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\124\33\160\46\101\33\62\159\27\51\184\59\21\32\35\159\126\36", "\203\59\96\237\107\69\111\113");
 		Status.TextColor3 = Color3.fromRGB(255, 80, 80);
 		Status.TextSize = 22;
 		Status.Font = Enum.Font.GothamBold;
 		Status.Position = UDim2.new(0, 0, 0.4, 0);
 		ButtonContainer.Position = UDim2.new(0, 0, 0.7, 0);
 	end
-	if (startMode == LUAOBFUSACTOR_DECRYPT_STR_0("\56\63\38\104\29\110\2\35\33\120\9", "\30\109\81\85\29\109")) then
+	if (startMode == LUAOBFUSACTOR_DECRYPT_STR_0("\17\24\191\244\33\224\216\54\2\169\229", "\183\68\118\204\129\81\144")) then
 		setUnsupportedMode();
 	end
 	ValidateBtn.MouseButton1Click:Connect(function()
 		local key = KeyInput.Text;
 		if (key:gsub(" ", "") == "") then
-			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\207\125\81\183\37\219\188\250\127\64\179\36\158\253\191\122\81\175", "\156\159\17\52\214\86\190");
+			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\62\161\117\229\24\135\78\168\126\240\14\144\78\172\48\239\14\155", "\226\110\205\16\132\107");
 			return;
 		end
 		if ((key ~= REQUIRED_KEY) and string.find(REQUIRED_KEY, key, 1, true)) then
-			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\135\225\190\179\163\255\177\185\186\234\253\183\171\246\252\252\132\224\180\178\238\203\180\175\173\224\175\184\238\251\178\252\169\234\169\252\186\231\184\252\168\250\177\176\238\228\184\165\224", "\220\206\143\221");
+			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\194\205\227\214\76\251\207\229\205\68\171\200\229\192\0\171\233\239\208\79\171\231\233\202\66\228\209\228\153\85\228\131\231\220\85\171\215\232\220\1\237\214\236\213\1\224\198\249\151", "\33\139\163\128\185");
 			Status.TextColor3 = Color3.fromRGB(255, 200, 50);
 			return;
 		end
-		Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\165\117\40\20\211\197\220\129\61\38\18\193\130\156\200", "\178\230\29\77\119\184\172");
+		Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\116\80\1\221\92\81\10\217\23\83\1\199\25\22\74", "\190\55\56\100");
 		Status.TextColor3 = Theme.AccentStart;
-		ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\187\240\68", "\152\149\222\106\123\23");
+		ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\24\225\114", "\147\54\207\92\126\115\131");
 		ValidateBtn.Active = false;
 		local success, state = validateAndLoad(key, false);
 		if success then
-		elseif (state == LUAOBFUSACTOR_DECRYPT_STR_0("\232\40\229\86\165\205\41\228\87\176\217", "\213\189\70\150\35")) then
+		elseif (state == LUAOBFUSACTOR_DECRYPT_STR_0("\56\63\38\104\29\110\2\35\33\120\9", "\30\109\81\85\29\109")) then
 			setUnsupportedMode();
 		else
-			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\102\91\98\9\67\92\112\72\100\80\109", "\104\47\53\20");
+			Status.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\214\127\66\183\58\215\248\191\90\81\175", "\156\159\17\52\214\86\190");
 			Status.TextColor3 = Color3.fromRGB(255, 80, 80);
-			ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\149\109\173\53\152\46\151\105\193\55\153\54", "\111\195\44\225\124\220");
+			ValidateBtn.Text = LUAOBFUSACTOR_DECRYPT_STR_0("\152\206\145\149\138\206\137\153\238\196\152\133", "\220\206\143\221");
 			ValidateBtn.Active = true;
 			local p = MainFrame.Position;
 			for i = 1, 6 do
